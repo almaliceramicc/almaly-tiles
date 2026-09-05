@@ -5,7 +5,7 @@
 
 ## Редактор медиа онлайн (с любого устройства)
 
-https://unus777.github.io/almaly-tiles/admin.html — вход по GitHub-токену
+https://almaliceramicc.github.io/almaly-tiles/admin.html — вход по GitHub-токену
 (fine-grained, репозиторий `almaly-tiles`, Repository permissions → Contents: Read and write).
 Токен сохраняется в браузере. Загрузка, удаление, порядок и обложка пишутся коммитом в `photos/`,
 после чего GitHub Action пересобирает сайт и QR-коды (1–2 минуты). Фото при загрузке
