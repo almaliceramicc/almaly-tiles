@@ -1,6 +1,9 @@
 const load = fetch('data.json', {cache: 'no-cache'}).then(r => r.json());
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const m2 = v => v > 0 ? v.toLocaleString('ru-RU', {maximumFractionDigits: 2}) + ' м²' : '—';
+/** Довоз со склада Тверь в Москву — один день. */
+const TVER_ETA = 'Доставка в Москву — 1 день';
+const TVER_ETA_LOW = 'доставка в Москву — 1 день';   // для середины предложения
 const cover = t => t.photos.length
   ? `<img src="img/${t.art}/${t.photos[0]}_t.jpg" alt="${esc(t.name)}" loading="lazy">`
   : 'фото скоро';
@@ -31,6 +34,7 @@ async function renderCatalog() {
           <div class="stock">
             <span>Москва <b class="${t.stock.msk > 0 ? 'ok' : 'off'}">${m2(t.stock.msk)}</b></span>
             <span>Тверь <b class="${t.stock.tver > 0 ? 'ok' : 'off'}">${m2(t.stock.tver)}</b></span>
+            ${t.stock.tver > 0 ? `<span class="eta">Тверь · доставка в Москву — 1 день</span>` : ''}
           </div>
         </div>
       </a>`).join('') || '<p class="meta">Ничего не найдено.</p>';
@@ -109,6 +113,7 @@ async function renderTile() {
           <tr><th>Резерв Тверь</th><td>${m2(t.stock.tver_res)}</td></tr>
           <tr><th>Свободно всего</th><td><b>${m2(t.stock.msk + t.stock.tver - t.stock.msk_res - t.stock.tver_res)}</b></td></tr>
         </table>
+        ${t.stock.tver > 0 ? `<p class="eta-note">Со склада Тверь: ${TVER_ETA_LOW}.</p>` : ''}
 
         <div class="qrbox">
           <img src="qr/${t.art}.png" alt="QR-код модели ${esc(t.name)}">
