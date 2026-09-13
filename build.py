@@ -40,14 +40,20 @@ def num(v):
         return 0.0
 
 
+# Артикулы, которые нужны в каталоге независимо от статуса в таблице.
+FORCE_ARTS = {"VHP600801"}          # Статуарио: в таблице «думаем», на сайте держим
+
+
 def catalog():
-    """Только рабочие артикулы с названием."""
+    """Рабочие артикулы с названием плюс те, что вынесены в FORCE_ARTS."""
     tiles = []
     for f in sorted((ROOT / "data").glob("*.csv")):
         for row in csv.DictReader(f.open(encoding="utf-8")):
             art, name = row["Артикулы"].strip(), norm(row["НАЗВАНИЯ"])
             status = row["Статус арт."].strip().lower()
-            if not art or not name or status not in ("рабочий арт", "new"):
+            if not art or not name:
+                continue
+            if status not in ("рабочий арт", "new") and art not in FORCE_ARTS:
                 continue
             fmt = norm(row["ФОРМАТ"]).replace("Х", "X").replace("X", "×")
             stock = {k: num(row[c]) for k, c in (
