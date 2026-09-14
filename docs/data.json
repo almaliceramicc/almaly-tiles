@@ -650,7 +650,7 @@
    "packing": "1 уп-5 шт-1,8 м2-34кг",
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
-    "msk": 154.8,
+    "msk": 142.2,
     "tver": 639.36,
     "msk_res": 0.0,
     "tver_res": 93.6
@@ -1363,6 +1363,31 @@
     "07.9a19955f",
     "08.bdecd0ce",
     "09.12d1bfbb"
+   ]
+  },
+  {
+   "art": "VHF600227",
+   "name": "Хлоя",
+   "format": "60×60",
+   "surface": "Матовая",
+   "packing": "1 уп-5 шт-1,8 м2-34кг",
+   "pallet": "1пал-46,8м2-26 уп-884кг",
+   "stock": {
+    "msk": 176.4,
+    "tver": 1110.6,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600227",
+   "is_new": false,
+   "photos": [
+    "01.94b79d9c",
+    "02.16e7597d",
+    "03.8f7be2b8",
+    "04.d7117211",
+    "05.6993b157",
+    "06.3d509494",
+    "07.c2f71d4f"
    ]
   },
   {
