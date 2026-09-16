@@ -183,38 +183,6 @@
    ]
   },
   {
-   "art": "VHP612391",
-   "name": "Джессика Тач",
-   "format": "60×120",
-   "surface": "Глянец",
-   "packing": "1 уп-2шт-1,44м2-27 кг",
-   "pallet": "1пал-72м2-50уп-1350кг",
-   "stock": {
-    "msk": 0.0,
-    "tver": 0.0,
-    "msk_res": 169.2,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612391",
-   "is_new": false,
-   "photos": [
-    "01.ed0279fe",
-    "02.32366a72",
-    "03.ccc91a36",
-    "04.a1689099",
-    "05.03c9de6c",
-    "06.1754d99c",
-    "07.4463c17a",
-    "08.91245df5",
-    "09.5649c8cd",
-    "10.e9d4bcee",
-    "11.b3442627",
-    "12.43851c73",
-    "13.516c7272",
-    "14.a0070110"
-   ]
-  },
-  {
    "art": "VHP612390",
    "name": "Лейла",
    "format": "60×120",
@@ -418,56 +386,6 @@
     "06.03f02448",
     "07.82dc7e27",
     "08.1bd5f38d"
-   ]
-  },
-  {
-   "art": "VHF612105",
-   "name": "Ребекка",
-   "format": "60×120",
-   "surface": "Матовая",
-   "packing": "1 уп-2шт-1,44м2-27 кг",
-   "pallet": "1пал-72м2-50уп-1350кг",
-   "stock": {
-    "msk": 220.92,
-    "tver": 542.16,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612105",
-   "is_new": false,
-   "photos": [
-    "01.ec793d02",
-    "02.cf70ea99",
-    "03.257d4fe0",
-    "04.93e09e81",
-    "05.4a605c95",
-    "06.3381cf9b",
-    "07.95531f08",
-    "08.83e4c19a"
-   ]
-  },
-  {
-   "art": "VHP612393",
-   "name": "Ребекка Полиш",
-   "format": "60×120",
-   "surface": "Глянец",
-   "packing": "1 уп-2шт-1,44м2-27 кг",
-   "pallet": "1пал-72м2-50уп-1350кг",
-   "stock": {
-    "msk": 38.16,
-    "tver": 0.0,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612393",
-   "is_new": false,
-   "photos": [
-    "01.31f212b2",
-    "02.8bae2cd4",
-    "03.d0a5f31f",
-    "04.db2ba771",
-    "05.c4789dda",
-    "06.1648ba4b"
    ]
   },
   {
@@ -1161,25 +1079,6 @@
    ]
   },
   {
-   "art": "VHP600402",
-   "name": "Миррор Блэк",
-   "format": "60×60",
-   "surface": "Глянец",
-   "packing": "1 уп-5 шт-1,8 м2-36кг",
-   "pallet": "1пал-46,8м2-26 уп-884кг",
-   "stock": {
-    "msk": 44.64,
-    "tver": 0.0,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600402",
-   "is_new": false,
-   "photos": [
-    "01.2875acf2"
-   ]
-  },
-  {
    "art": "VHF600822",
    "name": "Нептун",
    "format": "60×60",
@@ -1290,6 +1189,29 @@
    ]
   },
   {
+   "art": "VHP600801",
+   "name": "Статуарио",
+   "format": "60×60",
+   "surface": "Глянец",
+   "packing": "1 уп-5 шт-1,8 м2-34кг",
+   "pallet": "1пал-46,8м2-26 уп-884кг",
+   "stock": {
+    "msk": 126.36,
+    "tver": 1143.72,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600801",
+   "is_new": false,
+   "photos": [
+    "01.d155cb2c",
+    "02.62f07159",
+    "03.1077cc86",
+    "04.2523d366",
+    "05.80fb0c69"
+   ]
+  },
+  {
    "art": "VHF600080",
    "name": "Террацио Грей",
    "format": "60×60",
@@ -1385,6 +1307,40 @@
    "photos": []
   },
   {
+   "art": "VHP612398",
+   "name": "Галина Грей",
+   "format": "60×120",
+   "surface": "Глянец",
+   "packing": "1 уп-2шт-1,44м2-27 кг",
+   "pallet": "1пал-72м2-50уп-1350кг",
+   "stock": {
+    "msk": 0.72,
+    "tver": 0.0,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612398",
+   "is_new": true,
+   "photos": []
+  },
+  {
+   "art": "VHF612114",
+   "name": "Галина Грей Мат",
+   "format": "60×120",
+   "surface": "Матовая",
+   "packing": "1 уп-2шт-1,44м2-27 кг",
+   "pallet": "1пал-72м2-50уп-1350кг",
+   "stock": {
+    "msk": 144.0,
+    "tver": 293.76,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612114",
+   "is_new": true,
+   "photos": []
+  },
+  {
    "art": "VHF612816",
    "name": "Каро Вайт",
    "format": "60×120",
@@ -1399,6 +1355,40 @@
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612816",
    "is_new": false,
+   "photos": []
+  },
+  {
+   "art": "VHF612822",
+   "name": "Лиам Крем Мат",
+   "format": "60×120",
+   "surface": "Матовая",
+   "packing": "1 уп-2шт-1,44м2-27 кг",
+   "pallet": "1пал-72м2-50уп-1350кг",
+   "stock": {
+    "msk": 144.0,
+    "tver": 573.12,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612822",
+   "is_new": true,
+   "photos": []
+  },
+  {
+   "art": "VHF612122",
+   "name": "Травертин",
+   "format": "60×120",
+   "surface": "Матовая",
+   "packing": "1 уп-2шт-1,44м2-27 кг",
+   "pallet": "1пал-72м2-50уп-1350кг",
+   "stock": {
+    "msk": 144.0,
+    "tver": 640.4,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612122",
+   "is_new": true,
    "photos": []
   },
   {
@@ -1453,6 +1443,57 @@
    "photos": []
   },
   {
+   "art": "VHFZ600837",
+   "name": "Графит Блек",
+   "format": "60×60",
+   "surface": "Матовая",
+   "packing": "1 уп-5 шт-1,8 м2-34кг",
+   "pallet": "1пал-46,8м2-26 уп-884кг",
+   "stock": {
+    "msk": 0.0,
+    "tver": 0.0,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHFZ600837",
+   "is_new": true,
+   "photos": []
+  },
+  {
+   "art": "VHP600289",
+   "name": "Луна Грей Дарк",
+   "format": "60×60",
+   "surface": "Глянец",
+   "packing": "1 уп-5 шт-1,8 м2-34кг",
+   "pallet": "1пал-46,8м2-26 уп-884кг",
+   "stock": {
+    "msk": 138.6,
+    "tver": 673.2,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600289",
+   "is_new": true,
+   "photos": []
+  },
+  {
+   "art": "VHP600288",
+   "name": "Луна Грей Лайт",
+   "format": "60×60",
+   "surface": "Глянец",
+   "packing": "1 уп-5 шт-1,8 м2-34кг",
+   "pallet": "1пал-46,8м2-26 уп-884кг",
+   "stock": {
+    "msk": 138.6,
+    "tver": 669.6,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600288",
+   "is_new": true,
+   "photos": []
+  },
+  {
    "art": "VHP600000",
    "name": "Миррор Вайт",
    "format": "60×60",
@@ -1470,6 +1511,23 @@
    "photos": []
   },
   {
+   "art": "VHF600252",
+   "name": "Оникс Грей Мат",
+   "format": "60×60",
+   "surface": "Матовая",
+   "packing": "1 уп-5 шт-1,8 м2-34кг",
+   "pallet": "1пал-46,8м2-26 уп-884кг",
+   "stock": {
+    "msk": 0.0,
+    "tver": 0.0,
+    "msk_res": 37.8,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600252",
+   "is_new": true,
+   "photos": []
+  },
+  {
    "art": "VHF600858",
    "name": "Сэнд Крем",
    "format": "60×60",
@@ -1484,6 +1542,23 @@
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600858",
    "is_new": false,
+   "photos": []
+  },
+  {
+   "art": "VHF600249",
+   "name": "Травертин",
+   "format": "60×60",
+   "surface": "Матовая",
+   "packing": "1 уп-5 шт-1,8 м2-34кг",
+   "pallet": "1пал-46,8м2-26 уп-884кг",
+   "stock": {
+    "msk": 0.0,
+    "tver": 0.0,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600249",
+   "is_new": true,
    "photos": []
   }
  ]

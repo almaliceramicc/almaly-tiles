@@ -40,16 +40,25 @@ def num(v):
         return 0.0
 
 
+# Кириллические буквы-двойники в артикулах: «VHF600085С» и «VHF600085C» — одна плитка.
+CYR = str.maketrans("АВЕКМНОРСТУХ", "ABEKMHOPCTYX")
+
+
+def wanted_arts(path):
+    """Список артикулов для каталога из arts.txt (по одному в строке, # — комментарий)."""
+    lines = path.read_text(encoding="utf-8").splitlines()
+    return {a.strip().upper().translate(CYR) for a in lines if a.strip() and not a.startswith("#")}
+
+
 def catalog():
-    """Только артикулы со статусом «рабочий арт» из таблицы остатков."""
+    """Только артикулы из arts.txt; данные и остатки — из таблицы."""
+    want = wanted_arts(ROOT / "arts.txt")
     tiles = []
     for f in sorted((ROOT / "data").glob("*.csv")):
         for row in csv.DictReader(f.open(encoding="utf-8")):
             art, name = row["Артикулы"].strip(), norm(row["НАЗВАНИЯ"])
             status = row["Статус арт."].strip().lower()
-            if not art or not name:
-                continue
-            if status != "рабочий арт":
+            if not name or art.upper().translate(CYR) not in want:
                 continue
             fmt = norm(row["ФОРМАТ"]).replace("Х", "X").replace("X", "×")
             stock = {k: num(row[c]) for k, c in (
@@ -67,6 +76,9 @@ def catalog():
                 "is_new": status == "new",
             })
     tiles.sort(key=lambda t: (t["format"], t["name"]))
+    lost = want - {t["art"].upper().translate(CYR) for t in tiles}
+    if lost:
+        print("Нет в таблице (карточки не будет):", ", ".join(sorted(lost)))
     return tiles
 
 
