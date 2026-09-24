@@ -140,6 +140,12 @@ def make_qr(tile):
 
 def main():
     tiles = catalog()
+    # Таблицу правят вручную: переименованная колонка артикулов однажды уже оставила
+    # сайт с пустым каталогом. Лучше уронить прогон, чем стереть живой сайт.
+    was = len(json.loads((SITE / "data.json").read_text(encoding="utf-8"))["tiles"]) if (SITE / "data.json").exists() else 0
+    if len(tiles) < max(1, was // 2):
+        raise SystemExit(f"Отказ: из таблицы собралось {len(tiles)} карточек вместо {was}. "
+                         "data.json не тронут — проверьте колонку «Артикулы» и arts.txt.")
     for t in tiles:
         t["photos"] = make_images(t)
         make_qr(t)
