@@ -9,9 +9,9 @@
    "packing": "1 уп-2шт-1,44м2-27 кг",
    "pallet": "1пал-72м2-50уп-1350кг",
    "stock": {
-    "msk": 104.4,
-    "tver": 1026.0,
-    "msk_res": 25.92,
+    "msk": 74.16,
+    "tver": 1001.52,
+    "msk_res": 56.16,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612038",
@@ -60,9 +60,9 @@
    "packing": "1 уп-2шт-1,44м2-27 кг",
    "pallet": "1пал-72м2-50уп-1350кг",
    "stock": {
-    "msk": 198.72,
+    "msk": 216.0,
     "tver": 624.24,
-    "msk_res": 17.28,
+    "msk_res": 0.0,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612803",
@@ -191,7 +191,7 @@
    "pallet": "1пал-72м2-50уп-1350кг",
    "stock": {
     "msk": 190.08,
-    "tver": 381.6,
+    "tver": 360.0,
     "msk_res": 0.0,
     "tver_res": 0.0
    },
@@ -243,7 +243,7 @@
    "packing": "1 уп-2шт-1,44м2-27 кг",
    "pallet": "1пал-72м2-50уп-1350кг",
    "stock": {
-    "msk": 64.08,
+    "msk": 30.96,
     "tver": 0.0,
     "msk_res": 0.0,
     "tver_res": 0.0
@@ -269,9 +269,9 @@
    "packing": "1 уп-2шт-1,44м2-27 кг",
    "pallet": "1пал-72м2-50уп-1350кг",
    "stock": {
-    "msk": 113.04,
+    "msk": 98.64,
     "tver": 203.04,
-    "msk_res": 0.0,
+    "msk_res": 14.4,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612800",
@@ -296,7 +296,7 @@
    "pallet": "1пал-72м2-50уп-1350кг",
    "stock": {
     "msk": 159.84,
-    "tver": 14.4,
+    "tver": 10.08,
     "msk_res": 0.0,
     "tver_res": 0.0
    },
@@ -344,9 +344,9 @@
    "packing": "1 уп-2шт-1,44м2-27 кг",
    "pallet": "1пал-72м2-50уп-1350кг",
    "stock": {
-    "msk": 149.76,
+    "msk": 139.68,
     "tver": 1053.36,
-    "msk_res": 72.0,
+    "msk_res": 79.2,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612808",
@@ -398,8 +398,8 @@
    "stock": {
     "msk": 0.0,
     "tver": 0.0,
-    "msk_res": 63.36,
-    "tver_res": 76.32
+    "msk_res": 137.52,
+    "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHR612004",
    "is_new": false,
@@ -422,8 +422,8 @@
    "packing": "1 уп-2шт-1,44м2-27 кг",
    "pallet": "1пал-72м2-50уп-1350кг",
    "stock": {
-    "msk": 203.76,
-    "tver": 590.4,
+    "msk": 183.6,
+    "tver": 576.0,
     "msk_res": 0.0,
     "tver_res": 0.0
    },
@@ -544,7 +544,7 @@
    "packing": "1 уп-5 шт-1,8 м2-34кг",
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
-    "msk": 37.44,
+    "msk": 23.04,
     "tver": 0.0,
     "msk_res": 0.0,
     "tver_res": 0.0
@@ -568,7 +568,7 @@
    "packing": "1 уп-5 шт-1,8 м2-34кг",
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
-    "msk": 195.12,
+    "msk": 191.52,
     "tver": 545.76,
     "msk_res": 0.0,
     "tver_res": 0.0
@@ -711,8 +711,8 @@
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
     "msk": 126.72,
-    "tver": 1204.2,
-    "msk_res": 12.6,
+    "tver": 1182.6,
+    "msk_res": 0.0,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600849",
@@ -737,8 +737,8 @@
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
     "msk": 171.0,
-    "tver": 1627.56,
-    "msk_res": 34.2,
+    "tver": 1600.56,
+    "msk_res": 0.0,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600850",
@@ -758,7 +758,7 @@
    "packing": "1 уп-5 шт-1,8 м2-34кг",
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
-    "msk": 185.4,
+    "msk": 167.4,
     "tver": 308.16,
     "msk_res": 0.0,
     "tver_res": 0.0
@@ -782,7 +782,7 @@
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
     "msk": 250.56,
-    "tver": 375.12,
+    "tver": 372.24,
     "msk_res": 0.0,
     "tver_res": 0.0
    },
@@ -889,9 +889,9 @@
    "packing": "1 уп-5 шт-1,8 м2-34кг",
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
-    "msk": 216.36,
+    "msk": 194.76,
     "tver": 214.92,
-    "msk_res": 0.0,
+    "msk_res": 21.6,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600188",
@@ -939,9 +939,9 @@
    "packing": "1 уп-5 шт-1,8 м2-34кг",
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
-    "msk": 18.0,
-    "tver": 563.4,
-    "msk_res": 0.0,
+    "msk": 79.2,
+    "tver": 469.8,
+    "msk_res": 32.4,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600810",
@@ -987,9 +987,9 @@
    "packing": "1 уп-5 шт-1,8 м2-34кг",
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
-    "msk": 5.76,
-    "tver": 590.4,
-    "msk_res": 55.8,
+    "msk": 30.96,
+    "tver": 390.6,
+    "msk_res": 217.8,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600132",
@@ -1010,7 +1010,7 @@
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
     "msk": 156.6,
-    "tver": 438.12,
+    "tver": 405.72,
     "msk_res": 0.0,
     "tver_res": 0.0
    },
@@ -1037,9 +1037,9 @@
    "packing": "1 уп-5 шт-1,8 м2-34кг",
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
-    "msk": 0.0,
-    "tver": 1018.8,
-    "msk_res": 0.0,
+    "msk": 109.8,
+    "tver": 876.6,
+    "msk_res": 30.6,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600813",
@@ -1061,8 +1061,8 @@
    "packing": "1 уп-5 шт-1,8 м2-34кг",
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
-    "msk": 4.68,
-    "tver": 1000.8,
+    "msk": 98.28,
+    "tver": 882.0,
     "msk_res": 5.4,
     "tver_res": 0.0
    },
@@ -1133,7 +1133,7 @@
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
     "msk": 0.0,
-    "tver": 0.0,
+    "tver": 901.8,
     "msk_res": 0.0,
     "tver_res": 0.0
    },
@@ -1170,7 +1170,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
-    "msk": 425.16,
+    "msk": 421.56,
     "tver": 222.12,
     "msk_res": 0.0,
     "tver_res": 0.0
@@ -1196,9 +1196,9 @@
    "packing": "1 уп-5 шт-1,8 м2-34кг",
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
-    "msk": 0.0,
-    "tver": 816.12,
-    "msk_res": 152.28,
+    "msk": 128.88,
+    "tver": 628.56,
+    "msk_res": 0.0,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600801",
@@ -1434,7 +1434,7 @@
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
     "msk": 0.0,
-    "tver": 0.0,
+    "tver": 786.6,
     "msk_res": 0.0,
     "tver_res": 0.0
    },
@@ -1484,9 +1484,9 @@
    "packing": "1 уп-5 шт-1,8 м2-34кг",
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
-    "msk": 2.16,
-    "tver": 251.28,
-    "msk_res": 0.0,
+    "msk": 77.76,
+    "tver": 157.68,
+    "msk_res": 18.0,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600000",
@@ -1502,7 +1502,7 @@
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
     "msk": 0.0,
-    "tver": 0.0,
+    "tver": 783.0,
     "msk_res": 37.8,
     "tver_res": 0.0
    },
@@ -1536,7 +1536,7 @@
    "pallet": "1пал-46,8м2-26 уп-884кг",
    "stock": {
     "msk": 0.0,
-    "tver": 0.0,
+    "tver": 808.2,
     "msk_res": 0.0,
     "tver_res": 0.0
    },
