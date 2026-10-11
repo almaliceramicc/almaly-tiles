@@ -1,61 +1,107 @@
 #!/usr/bin/env python3
-"""Одноразовый импорт: раскладывает исходные фото по папкам артикулов photos/<АРТИКУЛ>/.
-Запускать повторно безопасно — уже скопированные файлы пропускаются."""
-import csv, shutil, unicodedata
+"""Раскладывает исходные фото Ozon по папкам артикулов photos/<АРТИКУЛ>/01..NN.
+
+Порядок кадров: если все файлы пронумерованы — по номеру, иначе по времени создания
+файла (в папках лежат UUID-имена, алфавит дал бы случайный порядок).
+Артикулы, для которых исходной папки нет, не трогаются.
+"""
+import csv, re, shutil, sys, unicodedata
 from pathlib import Path
 
 SRC = Path("/Users/yunus_mac/Documents/Старс керамик (Плитки)/Фото для озон")
 ROOT = Path(__file__).parent
 DST = ROOT / "photos"
+EXT = {".jpg", ".jpeg", ".png", ".webp", ".heic"}
 
-# папки, чьё имя не совпадает с названием из таблицы
+# Папки, названные не так, как модель в таблице. Точное совпадение имени всегда важнее
+# псевдонима: при двух папках на одну модель («ОРО ВАЙТ» и «ОРРО ВАЙТ») берётся точная.
 ALIASES = {
+    "АЙССНОВ": "АЙССНОУ",
+    "ОРРО ВАЙТ": "ОРО ВАЙТ",
+    "МИНЕРАЛ ВАЙТ": "МИРРОР ВАЙТ",
     "ЛИАМ КРЕМ МАТОВЫЙ": "ЛИАМ КРЕМ",
     "ЛИАМ КРЕМ ГАЛЯНЦЕЫЙ": "ЛИАМ КРЕМ ПОЛИШ",
     "ДЖОЗЕФИНА": "ДЖОЗЕФИНА ПОЛИШ",
-    "АЙССНОВ": "АЙССНОУ",
-    "МИНЕРАЛ ВАЙТ": "МИРРОР ВАЙТ",
+    "БЕТОН ГРЕЙ МАТ": "БЕТОН ГРЕЙ",
+    "ГЕОРГИЯ МТ": "ГЕОРГИЯ",
+    "ЕВА ВАЙТ МАТ": "ЕВА ВАЙТ",
+    "ЗЕВС ГРЕЙ МТ": "ЗЕВС ГРЕЙ",
+    "ОРО ВАЙТ МАТ": "ОРО ВАЙТ",
+    "ПАТРИЦИЯ СТОУН КРАВ": "ПАТРИЦИЯ СТОУН",
 }
 
-def norm(s):
-    s = unicodedata.normalize("NFC", s)
-    return " ".join(s.upper().replace("Ё", "Е").replace("*", "X").split())
+CYR = str.maketrans("АВЕКМНОРСТУХ", "ABEKMHOPCTYX")
 
-def load_catalog():
+
+def norm(s):
+    s = unicodedata.normalize("NFC", s).upper().replace("Ё", "Е").replace("*", "X")
+    return " ".join(s.replace("Х", "X").split())
+
+
+def catalog():
+    """(название, формат) -> артикул; только артикулы из arts.txt."""
+    want = {a.strip().upper().translate(CYR)
+            for a in (ROOT / "arts.txt").read_text(encoding="utf-8").splitlines()
+            if a.strip() and not a.startswith("#")}
     out = {}
     for f in (ROOT / "data").glob("*.csv"):
         for row in csv.DictReader(f.open(encoding="utf-8")):
-            art, name, fmt = row["Артикулы"].strip(), row["НАЗВАНИЯ"].strip(), norm(row["ФОРМАТ"])
-            if art and name:
-                out[(norm(name), fmt)] = art
+            art, name = row["Артикулы"].strip(), row["НАЗВАНИЯ"].strip()
+            if art and name and art.upper().translate(CYR) in want:
+                out[(norm(name), norm(row["ФОРМАТ"]))] = art
     return out
 
-def main():
-    cat = load_catalog()
-    unmatched = []
-    for fmt_dir in SRC.iterdir():
-        if not fmt_dir.is_dir():
-            continue
+
+def ordered(files):
+    """Кадры в том порядке, в котором их делали."""
+    nums = [re.match(r"0*(\d+)", p.stem) for p in files]
+    if all(nums):
+        return sorted(files, key=lambda p: int(re.match(r"0*(\d+)", p.stem).group(1)))
+    return sorted(files, key=lambda p: getattr(p.stat(), "st_birthtime", p.stat().st_mtime))
+
+
+def source_dirs():
+    """(название, формат) -> папка. Точное имя модели вытесняет псевдоним."""
+    exact, aliased, skipped = {}, {}, []
+    for fmt_dir in sorted(p for p in SRC.iterdir() if p.is_dir()):
         fmt = norm(fmt_dir.name)
-        for tile_dir in sorted(fmt_dir.iterdir()):
-            if not tile_dir.is_dir():
-                continue
-            name = norm(tile_dir.name)
-            name = ALIASES.get(name, name)
-            art = cat.get((name, fmt))
-            if not art:
-                unmatched.append(f"{fmt_dir.name}/{tile_dir.name}")
-                continue
-            target = DST / art
-            target.mkdir(parents=True, exist_ok=True)
-            for i, src in enumerate(sorted(p for p in tile_dir.iterdir()
-                                           if p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp", ".heic"}), 1):
-                dst = target / f"{i:02d}{src.suffix.lower()}"
-                if not dst.exists():
-                    shutil.copy2(src, dst)
-            print(f"{art:12} {name:25} {len(list(target.iterdir()))} фото")
+        for d in sorted(p for p in fmt_dir.iterdir() if p.is_dir()):
+            name = norm(d.name)
+            if name in ALIASES:
+                aliased.setdefault((ALIASES[name], fmt), d)
+            else:
+                exact[(name, fmt)] = d
+    for key, d in aliased.items():
+        if key in exact:
+            skipped.append(f"{d.name} (есть точная папка {exact[key].name})")
+        else:
+            exact[key] = d
+    return exact, skipped
+
+
+def main():
+    cat, (dirs, skipped) = catalog(), source_dirs()
+    done, unmatched = [], []
+    for key, d in sorted(dirs.items()):
+        art = cat.get(key)
+        files = ordered([p for p in d.iterdir() if p.suffix.lower() in EXT])
+        if not art:
+            unmatched.append(f"{d.parent.name}/{d.name} ({len(files)} фото)")
+            continue
+        target = DST / art
+        target.mkdir(parents=True, exist_ok=True)
+        for old in target.iterdir():
+            old.unlink()                       # ставим ровно тот набор, что в источнике
+        for i, src in enumerate(files, 1):
+            shutil.copy2(src, target / f"{i:02d}{src.suffix.lower()}")
+        done.append(f"{art:12} {key[0]:22} {key[1]:7} {len(files)} фото  <- {d.name}")
+    print("\n".join(done))
+    print(f"\nОбновлено моделей: {len(done)}")
+    if skipped:
+        print("Папки-дубли, пропущены:", *skipped, sep="\n  ")
     if unmatched:
-        print("\nНе нашёл в таблице (проверь названия):", *unmatched, sep="\n  ")
+        print("Нет такой модели в каталоге, пропущены:", *unmatched, sep="\n  ")
+
 
 if __name__ == "__main__":
     main()

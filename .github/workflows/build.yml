@@ -2,7 +2,7 @@ name: Пересборка каталога
 
 on:
   push:
-    paths: ["photos/**", "build.py", "config.json"]
+    paths: ["photos/**", "arts.txt", "build.py", "config.json"]
   schedule:
     - cron: "0 4 * * *"        # ежедневно тянем свежие остатки из таблицы
   workflow_dispatch:

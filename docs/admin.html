@@ -26,6 +26,9 @@
   .side-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
     padding:12px;position:sticky;top:84px;max-height:calc(100vh - 110px);display:flex;flex-direction:column;gap:10px}
   .side-list input[type=search]{width:100%;min-width:0}
+  .arts-add{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:10px}
+  .arts-add input{width:100%;min-width:0;background:var(--panel2);border:1px solid var(--line);
+    color:var(--tx);padding:9px 11px;border-radius:10px;font:13px var(--sans)}
   .side-scroll{overflow-y:auto;display:flex;flex-direction:column;gap:4px;margin:-4px;padding:4px}
   .item{display:flex;gap:10px;align-items:center;padding:8px;border-radius:10px;cursor:pointer;
     border:1px solid transparent;text-align:left;background:none;color:inherit;font:inherit;width:100%}
@@ -114,6 +117,10 @@
   <aside class="side-list">
     <input type="search" id="q" placeholder="Поиск модели или артикула" aria-label="Поиск">
     <div class="side-scroll" id="list"></div>
+    <div class="arts-add">
+      <input id="newArt" placeholder="Артикул, например VHP600003" aria-label="Новый артикул">
+      <button class="btn" id="addArt">Добавить карточку</button>
+    </div>
   </aside>
   <main class="work" id="work"></main>
 </div>
@@ -171,6 +178,54 @@ async function commitOnce(message, ops) {
   const c = await gh('/git/commits', {method: 'POST',
     body: JSON.stringify({message, tree: t.sha, parents: [head]})});
   await gh(`/git/refs/heads/${BRANCH}`, {method: 'PATCH', body: JSON.stringify({sha: c.sha})});
+}
+
+/* ---------- состав каталога (arts.txt) ---------- */
+let artsLines = [];           // файл arts.txt построчно, как лежит в репозитории
+
+async function loadArts() {
+  const r = await fetch(`https://raw.githubusercontent.com/${REPO}/${BRANCH}/arts.txt?t=` + Date.now(),
+                        {cache: 'no-store'});
+  artsLines = (await r.text()).replace(/\n$/, '').split('\n');
+}
+
+/** Пишет новый arts.txt одним коммитом; пересборку сайта делает GitHub Action. */
+async function saveArts(message) {
+  const text = artsLines.join('\n') + '\n';
+  const blob = await gh('/git/blobs', {method: 'POST',
+    body: JSON.stringify({content: text, encoding: 'utf-8'})});
+  await commit(message, [{path: 'arts.txt', sha: blob.sha}]);
+}
+
+const artIndex = art => artsLines.findIndex(l => l.trim().toUpperCase() === art.toUpperCase());
+
+async function addArt() {
+  const art = $('#newArt').value.trim().toUpperCase();
+  if (!art) return;
+  if (!/^[A-ZА-Я0-9-]{4,20}$/.test(art)) return toast('Это не похоже на артикул', true);
+  if (artIndex(art) >= 0) return toast('Этот артикул уже в каталоге', true);
+  try {
+    artsLines.push(art);
+    await saveArts(`Каталог: добавлен ${art}`);
+    $('#newArt').value = '';
+    toast('Добавлено. Карточка появится через 1–2 минуты, если артикул есть в таблице.');
+  } catch (e) { artsLines.pop(); toast('Не получилось: ' + e.message, true); }
+}
+
+async function dropArt() {
+  const t = tiles.find(x => x.art === current);
+  if (!t) return;
+  if (!confirm(`Убрать «${t.name}» с сайта? Напечатанный QR-код на эту модель перестанет работать.`)) return;
+  const i = artIndex(t.art);
+  if (i < 0) return toast('Этого артикула нет в arts.txt', true);
+  const [line] = artsLines.splice(i, 1);
+  try {
+    await saveArts(`Каталог: убран ${t.art}`);
+    tiles = tiles.filter(x => x.art !== t.art);
+    current = null;
+    drawList(); drawWork();
+    toast('Убрано. Сайт обновится через 1–2 минуты.');
+  } catch (e) { artsLines.splice(i, 0, line); toast('Не получилось: ' + e.message, true); }
 }
 
 async function loadRepoFiles() {
@@ -258,6 +313,7 @@ function drawWork() {
       </div>
       <div class="right">
         <a class="btn" href="tile.html?a=${t.art}" target="_blank">Открыть на сайте ↗</a>
+        <button class="btn" id="dropArt">Убрать с сайта</button>
       </div>
     </div>
     <p class="hint">Перетаскивай фото мышью или пальцем — первое становится обложкой. ★ — сразу в обложку,
@@ -302,6 +358,7 @@ async function save() {
     }
     await commit(`Фото ${art}: ${keep.length} шт.`, ops);
     await loadRepoFiles();
+    await loadArts();
     draft = (repoFiles[art] || []).map(p => ({...p, id: p.f}));
     drawList(); drawWork();
     toast('Сохранено. Сайт обновится через 1–2 минуты.');
@@ -316,11 +373,14 @@ $('#list').addEventListener('click', e => {
   const b = e.target.closest('.item'); if (b) select(b.dataset.art);
 });
 $('#q').addEventListener('input', drawList);
+$('#addArt').addEventListener('click', addArt);
+$('#newArt').addEventListener('keydown', e => { if (e.key === 'Enter') addArt(); });
 
 $('#work').addEventListener('click', async e => {
   const b = e.target.closest('button[data-act], #save, #reset');
   if (!b) return;
   if (b.id === 'save') return save();
+  if (b.id === 'dropArt') return dropArt();
   if (b.id === 'reset') { draft = (repoFiles[current] || []).map(p => ({...p, id: p.f})); return drawWork(); }
   const i = +b.dataset.i, p = draft[i];
   if (b.dataset.act === 'del') p.deleted = true;
@@ -373,6 +433,7 @@ async function start() {
       throw new Error('у токена только чтение — нужен доступ на запись');
     tiles = (await fetch('data.json', {cache: 'no-cache'}).then(r => r.json())).tiles;
     await loadRepoFiles();
+    await loadArts();
     $('#gate').hidden = true; $('#app').hidden = false; $('#logout').hidden = false;
     drawList(); drawWork();
     const a = new URLSearchParams(location.search).get('a');
