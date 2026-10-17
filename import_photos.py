@@ -49,6 +49,10 @@ def catalog():
             art, name = row["Артикулы"].strip(), row["НАЗВАНИЯ"].strip()
             if art and name and art.upper().translate(CYR) in want:
                 out[(norm(name), norm(row["ФОРМАТ"]))] = art
+    import json
+    for x in json.loads((ROOT / "extra.json").read_text(encoding="utf-8"))["tiles"]:
+        if x["art"].upper().translate(CYR) in want:
+            out.setdefault((norm(x["name"]), norm(x["format"].replace("×", "X"))), x["art"])
     return out
 
 
@@ -79,11 +83,22 @@ def source_dirs():
     return exact, skipped
 
 
+def has_photos(art):
+    d = DST / art
+    return d.is_dir() and any(p.suffix.lower() in EXT for p in d.iterdir())
+
+
 def main():
     cat, (dirs, skipped) = catalog(), source_dirs()
     done, unmatched = [], []
     for key, d in sorted(dirs.items()):
         art = cat.get(key)
+        if not art:
+            same = [a for (n, _), a in cat.items() if n == key[0]]
+            art = same[0] if len(same) == 1 else None
+        forced = "--all" in sys.argv or art in sys.argv[1:]   # артикулы в аргументах — перезаписать
+        if art and has_photos(art) and not forced:
+            continue                           # фото уже есть — не трогаем выверенный порядок
         files = ordered([p for p in d.iterdir() if p.suffix.lower() in EXT])
         if not art:
             unmatched.append(f"{d.parent.name}/{d.name} ({len(files)} фото)")

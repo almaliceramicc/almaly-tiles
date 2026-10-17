@@ -75,6 +75,13 @@ def catalog():
                 "url": f"{BASE}/tile.html?a={art}",
                 "is_new": status == "new",
             })
+    # Модели, которых нет в таблице: карточка из extra.json, остатков нет.
+    found = {t["art"].upper().translate(CYR) for t in tiles}
+    for x in json.loads((ROOT / "extra.json").read_text(encoding="utf-8"))["tiles"]:
+        art = x["art"].upper().translate(CYR)
+        if art in want and art not in found:
+            tiles.append(x | {"url": f"{BASE}/tile.html?a={x['art']}", "is_new": False,
+                              "stock": dict.fromkeys(("msk", "tver", "msk_res", "tver_res"), 0.0)})
     tiles.sort(key=lambda t: (t["format"], t["name"]))
     lost = want - {t["art"].upper().translate(CYR) for t in tiles}
     if lost:
