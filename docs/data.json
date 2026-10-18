@@ -474,30 +474,6 @@
    ]
   },
   {
-   "art": "VHP612393",
-   "name": "Ребекка Полиш",
-   "format": "60×120",
-   "surface": "Глянец",
-   "packing": "1 уп-2шт-1,44м2-27 кг",
-   "pallet": "1пал-72м2-50уп-1350кг",
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612393",
-   "is_new": false,
-   "stock": {
-    "msk": 0.0,
-    "tver": 0.0,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "photos": [
-    "01.8e2dfc56",
-    "02.a814d970",
-    "03.db168673",
-    "04.a686419e",
-    "05.54eab002",
-    "06.56dcc445"
-   ]
-  },
-  {
    "art": "VHR612004",
    "name": "Скайли",
    "format": "60×120",
@@ -1761,40 +1737,6 @@
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHJ600001",
-   "is_new": false,
-   "photos": []
-  },
-  {
-   "art": "VHF600246",
-   "name": "Галина Грей",
-   "format": "60×60",
-   "surface": "Матовая",
-   "packing": "1 уп-5 шт-1,8 м2-34кг",
-   "pallet": "1пал-46,8м2-26 уп-884кг",
-   "stock": {
-    "msk": 16.2,
-    "tver": 0.0,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600246",
-   "is_new": false,
-   "photos": []
-  },
-  {
-   "art": "VHF600858",
-   "name": "Сэнд Крем",
-   "format": "60×60",
-   "surface": "Матовая",
-   "packing": "1 уп-5 шт-1,8 м2-34кг",
-   "pallet": "1пал-46,8м2-26 уп-884кг",
-   "stock": {
-    "msk": 216.0,
-    "tver": 0.0,
-    "msk_res": 19.8,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600858",
    "is_new": false,
    "photos": []
   }
