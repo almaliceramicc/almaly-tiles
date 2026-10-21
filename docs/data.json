@@ -34,9 +34,9 @@
    "packing": "1 уп-2шт-1,44м2-28,8 кг",
    "pallet": "1пал-72м2-50уп-1440кг",
    "stock": {
-    "msk": 264.96,
+    "msk": 223.2,
     "tver": 565.2,
-    "msk_res": 0.0,
+    "msk_res": 41.76,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612802",
@@ -165,7 +165,7 @@
    "packing": "1 уп-2шт-1,44м2-28,8 кг",
    "pallet": "1пал-72м2-50уп-1440кг",
    "stock": {
-    "msk": 147.6,
+    "msk": 113.04,
     "tver": 949.68,
     "msk_res": 0.0,
     "tver_res": 0.0
@@ -659,7 +659,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 18.0,
+    "msk": 10.8,
     "tver": 0.0,
     "msk_res": 0.0,
     "tver_res": 0.0
@@ -683,9 +683,9 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 159.48,
+    "msk": 134.28,
     "tver": 405.36,
-    "msk_res": 0.0,
+    "msk_res": 25.2,
     "tver_res": 140.4
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHJ600014",
@@ -1174,32 +1174,6 @@
     "02.0ec14534",
     "03.717cbabb",
     "04.495f41f9"
-   ]
-  },
-  {
-   "art": "VHP600289",
-   "name": "Луна Грей Дарк",
-   "format": "60×60",
-   "surface": "Глянец",
-   "packing": "1 уп-5 шт-1,8 м2-36кг",
-   "pallet": "1пал-46,8м2-26 уп-936кг",
-   "stock": {
-    "msk": 157.32,
-    "tver": 392.4,
-    "msk_res": 0.0,
-    "tver_res": 140.4
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600289",
-   "is_new": false,
-   "photos": [
-    "01.f341a5e4",
-    "02.7dd43260",
-    "03.5b39567c",
-    "04.e7cb5559",
-    "05.dcf4cd89",
-    "06.b25e54e7",
-    "07.f1aded3e",
-    "08.d962c4d3"
    ]
   },
   {
@@ -1697,9 +1671,9 @@
    "packing": "1 уп-2шт-1,44м2-28,8 кг",
    "pallet": "1пал-72м2-50уп-1440кг",
    "stock": {
-    "msk": 82.44,
+    "msk": 81.0,
     "tver": 69.12,
-    "msk_res": 25.92,
+    "msk_res": 1.44,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612822",
@@ -1737,6 +1711,23 @@
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHJ600001",
+   "is_new": false,
+   "photos": []
+  },
+  {
+   "art": "VHP600289",
+   "name": "Луна Грей Дарк",
+   "format": "60×60",
+   "surface": "Глянец",
+   "packing": "1 уп-5 шт-1,8 м2-36кг",
+   "pallet": "1пал-46,8м2-26 уп-936кг",
+   "stock": {
+    "msk": 157.32,
+    "tver": 392.4,
+    "msk_res": 0.0,
+    "tver_res": 140.4
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600289",
    "is_new": false,
    "photos": []
   }
