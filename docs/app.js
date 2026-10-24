@@ -17,9 +17,13 @@ const coverIdx = t => {
   const n = COVER[t.art] ? COVER[t.art] - 1 : (t.photos.length >= 6 ? 4 : 0);
   return Math.min(n, t.photos.length - 1);
 };
-const cover = t => t.photos.length
-  ? `<img src="img/${t.art}/${t.photos[coverIdx(t)]}_t.jpg" alt="${esc(t.name)} в интерьере" loading="lazy">`
-  : 'фото скоро';
+/** На карточке — сама плитка (первый кадр), при наведении проявляется интерьер. */
+const cover = t => {
+  if (!t.photos.length) return 'фото скоро';
+  const i = coverIdx(t);
+  return `<img src="img/${t.art}/${t.photos[0]}_t.jpg" alt="${esc(t.name)}" loading="lazy">` +
+    (i > 0 ? `<img class="alt" src="img/${t.art}/${t.photos[i]}_t.jpg" alt="" aria-hidden="true" loading="lazy">` : '');
+};
 
 /** «1 уп-2шт-1,44м2-28,8 кг» → {pcs: 2, sqm: 1.44, kg: 28.8}; чего нет — 0. */
 function pack(s) {
@@ -129,7 +133,7 @@ async function renderTile() {
   const packs = v => p.sqm ? Math.floor(v / p.sqm + 1e-9) : 0;
   const freeMsk = Math.max(0, t.stock.msk - t.stock.msk_res), freeTver = Math.max(0, t.stock.tver - t.stock.tver_res);
   const wa = `${WA}?text=${encodeURIComponent(`Здравствуйте! Интересует керамогранит ${t.name} ${t.format}.`)}`;
-  const start = t.photos.length ? coverIdx(t) : 0;
+  const start = 0;                                      // галерея открывается с самой плитки
 
   const gallery = t.photos.length ? `
     <button type="button" class="main-ph" id="big-wrap" aria-label="Открыть фото на весь экран">
