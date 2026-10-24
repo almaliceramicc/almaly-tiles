@@ -1,44 +1,76 @@
 const load = fetch('data.json', {cache: 'no-cache'}).then(r => r.json());
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const m2 = v => v > 0 ? v.toLocaleString('ru-RU', {maximumFractionDigits: 2}) + ' м²' : '—';
+const nf = (v, d = 2) => v.toLocaleString('ru-RU', {maximumFractionDigits: d});
+const m2 = v => v > 0 ? nf(v) + ' м²' : '—';
+const m2r = v => v > 0 ? nf(v, 0) + ' м²' : '—';     // на карточках — без копеек
+const WA = 'https://wa.me/79253907888';
 /** Довоз со склада Тверь в Москву — один день. */
-const TVER_ETA = 'Доставка в Москву — 1 день';
-const TVER_ETA_LOW = 'доставка в Москву — 1 день';   // для середины предложения
+const TVER_ETA_LOW = 'довоз в Москву — 1 день';
+
+/* Обложка карточки — интерьерный кадр. По схеме владельца интерьер пятый (ванная);
+   у моделей, где кадры стоят иначе, номер задан вручную (1 = первый кадр).
+   ponytail: ручной список, при новых фото проверять; когда надоест — поле «обложка» в редакторе. */
+const COVER = {VHP612098: 8, VHP612391: 6, VHP612390: 6, VHP612392: 7, VHP612826: 8, VHP612800: 8, VHP612039: 4,
+  VHP612887: 8, VHP612042: 5, VHP600806: 7, VHP600157: 1, VHP600003: 1, VHP600865: 5, VHF600818: 5, VHF600188: 5,
+  VHP600813: 6, VHP600826: 7, VHF600822: 8, VHF600007: 8, VHF600080: 8, VHF600229: 7, VHF600227: 7, VHP600853: 6};
+const coverIdx = t => {
+  const n = COVER[t.art] ? COVER[t.art] - 1 : (t.photos.length >= 6 ? 4 : 0);
+  return Math.min(n, t.photos.length - 1);
+};
 const cover = t => t.photos.length
-  ? `<img src="img/${t.art}/${t.photos[0]}_t.jpg" alt="${esc(t.name)}" loading="lazy">`
+  ? `<img src="img/${t.art}/${t.photos[coverIdx(t)]}_t.jpg" alt="${esc(t.name)} в интерьере" loading="lazy">`
   : 'фото скоро';
+
+/** «1 уп-2шт-1,44м2-28,8 кг» → {pcs: 2, sqm: 1.44, kg: 28.8}; чего нет — 0. */
+function pack(s) {
+  const n = re => +((String(s || '').replace(/,/g, '.').match(re) || [])[1] || 0);
+  return {pcs: n(/(\d+)\s*шт/i), sqm: n(/([\d.]+)\s*м2/i), kg: n(/([\d.]+)\s*кг/i), packs: n(/(\d+)\s*уп/i)};
+}
+const packText = t => {
+  const p = pack(t.packing);
+  return p.sqm ? [p.pcs && `${p.pcs} плит${p.pcs < 5 ? 'ки' : 'ок'}`, `${nf(p.sqm)} м²`, p.kg && `${nf(p.kg, 1)} кг`]
+    .filter(Boolean).join(' · ') : esc(t.packing);
+};
+const palletText = t => {
+  const p = pack(t.pallet);
+  return p.sqm ? [p.packs && `${p.packs} упаковок`, `${nf(p.sqm)} м²`, p.kg && `${nf(p.kg, 0)} кг`]
+    .filter(Boolean).join(' · ') : esc(t.pallet);
+};
+const stockLine = t => t.stock.msk > 0 || t.stock.tver > 0
+  ? `<span class="dot"></span><span>Москва ${m2r(t.stock.msk)} · Тверь ${m2r(t.stock.tver)}</span>`
+  : '<span class="dot off"></span><span>Под заказ</span>';
+
+const card = t => `
+  <a class="card" href="tile.html?a=${t.art}">
+    <div class="ph">${cover(t)}<span class="fmt">${t.format}</span>${t.is_new ? '<span class="new">Новинка</span>' : ''}</div>
+    <div class="nm"><h3>${esc(t.name)}</h3><span class="srf">${esc(t.surface)}</span></div>
+    <div class="stock">${stockLine(t)}</div>
+  </a>`;
+
+const models = n => {
+  const k = n % 10, h = n % 100;
+  return `${n} ${k === 1 && h !== 11 ? 'модель' : k >= 2 && k <= 4 && (h < 12 || h > 14) ? 'модели' : 'моделей'}`;
+};
 
 async function renderCatalog() {
   const { tiles } = await load;
   const [q, fmt, srf, grid, count] = ['q','fmt','srf','grid','count'].map(id => document.getElementById(id));
 
-  const formats = [...new Set(tiles.map(t => t.format))].sort();
-  fmt.innerHTML = ['Все форматы', ...formats].map((v, i) =>
-    `<button class="chip" role="button" aria-pressed="${i === 0}" data-v="${i ? v : ''}">${v}</button>`).join('');
-  [...new Set(tiles.map(t => t.surface))].sort().forEach(v => srf.add(new Option(v, v)));
+  const want = new URLSearchParams(location.search).get('f') || '';
+  const formats = [...new Set(tiles.map(t => t.format))].sort((a, b) => parseInt(a.split('×')[1]) - parseInt(b.split('×')[1]));
+  fmt.innerHTML = ['', ...formats].map(v =>
+    `<button type="button" class="chip" aria-pressed="${v === want || (!v && !formats.includes(want))}" data-v="${v}">${v || 'Все форматы'}</button>`).join('');
+  srf.innerHTML = [...new Set(tiles.map(t => t.surface))].sort().map(v =>
+    `<button type="button" class="chip srf" aria-pressed="false" data-v="${esc(v)}">${esc(v)}</button>`).join('');
 
   const draw = () => {
     const s = q.value.trim().toLowerCase();
     const f = fmt.querySelector('[aria-pressed=true]').dataset.v;
-    const list = tiles.filter(t =>
-      (!f || t.format === f) &&
-      (!srf.value || t.surface === srf.value) &&
+    const sf = srf.querySelector('[aria-pressed=true]')?.dataset.v || '';
+    const list = tiles.filter(t => (!f || t.format === f) && (!sf || t.surface === sf) &&
       (!s || (t.name + ' ' + t.art).toLowerCase().includes(s)));
-    grid.innerHTML = list.map(t => `
-      <a class="card" href="tile.html?a=${t.art}">
-        <div class="ph">${cover(t)}</div>
-        <div class="b">
-          <h3>${esc(t.name)}</h3>
-          <div class="meta"><span class="tag">${t.format}</span><span class="tag">${esc(t.surface)}</span>
-            ${t.is_new ? '<span class="tag new">Новинка</span>' : ''}</div>
-          <div class="stock">
-            <span>Москва <b class="${t.stock.msk > 0 ? 'ok' : 'off'}">${m2(t.stock.msk)}</b></span>
-            <span>Тверь <b class="${t.stock.tver > 0 ? 'ok' : 'off'}">${m2(t.stock.tver)}</b></span>
-            ${t.stock.tver > 0 ? `<span class="eta">Тверь · доставка в Москву — 1 день</span>` : ''}
-          </div>
-        </div>
-      </a>`).join('') || '<p class="meta">Ничего не найдено.</p>';
-    count.textContent = `${list.length} из ${tiles.length}`;
+    grid.innerHTML = list.map(card).join('') || '<p class="empty">Ничего не найдено — попробуйте другой формат или поверхность.</p>';
+    count.textContent = list.length === tiles.length ? models(tiles.length) : `${list.length} из ${tiles.length}`;
   };
 
   fmt.addEventListener('click', e => {
@@ -46,13 +78,18 @@ async function renderCatalog() {
     fmt.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === b));
     draw();
   });
-  [q, srf].forEach(el => el.addEventListener('input', draw));
+  srf.addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    const on = b.getAttribute('aria-pressed') !== 'true';            // повторный клик снимает фильтр
+    srf.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', on && c === b));
+    draw();
+  });
+  q.addEventListener('input', draw);
   draw();
 
   const withPhoto = tiles.filter(t => t.photos.length).length;
   document.getElementById('s-models').textContent = tiles.length;
-  document.getElementById('s-photo').textContent = withPhoto;
-  document.getElementById('stat').textContent = `${tiles.length} моделей · ${withPhoto} с фотографиями`;
+  document.getElementById('stat').textContent = `${models(tiles.length)} · ${withPhoto} с фотографиями`;
 }
 
 /** Полноэкранный просмотр фото со стрелками и Esc. */
@@ -81,58 +118,100 @@ async function renderTile() {
   const art = new URLSearchParams(location.search).get('a');
   const t = tiles.find(x => x.art === art);
   const box = document.getElementById('tile');
-  if (!t) { box.innerHTML = '<p class="back">Плитка не найдена. <a href="index.html">В каталог</a></p>'; return; }
-  document.title = `${t.name} — Алмалы-Керамик`;
+  if (!t) {
+    box.innerHTML = `<div class="wrap missing"><p>Эта модель сейчас не в каталоге.</p>
+      <p><a class="btn solid" href="index.html#catalog">Весь каталог</a></p></div>`;
+    return;
+  }
+  document.title = `${t.name} — керамогранит ${t.format} | Алмалы-Керамик`;
+
+  const p = pack(t.packing);
+  const packs = v => p.sqm ? Math.floor(v / p.sqm + 1e-9) : 0;
+  const freeMsk = Math.max(0, t.stock.msk - t.stock.msk_res), freeTver = Math.max(0, t.stock.tver - t.stock.tver_res);
+  const wa = `${WA}?text=${encodeURIComponent(`Здравствуйте! Интересует керамогранит ${t.name} ${t.format}.`)}`;
+  const start = t.photos.length ? coverIdx(t) : 0;
 
   const gallery = t.photos.length ? `
-    <div class="main-ph" id="big-wrap"><img id="big" src="img/${t.art}/${t.photos[0]}.jpg" alt="${esc(t.name)}"></div>
-    <div class="thumbs">${t.photos.map((p, i) => `
-      <img src="img/${t.art}/${p}_t.jpg" alt="Фото ${i + 1}" aria-current="${i === 0}" data-i="${i}">`).join('')}</div>`
-    : '<div class="main-ph"><div class="ph" style="aspect-ratio:4/3">Фотографии этой модели пока не загружены</div></div>';
+    <button type="button" class="main-ph" id="big-wrap" aria-label="Открыть фото на весь экран">
+      <img id="big" src="img/${t.art}/${t.photos[start]}.jpg" alt="${esc(t.name)}"></button>
+    <div class="thumbs">${t.photos.map((ph, i) => `
+      <button type="button" data-i="${i}" aria-pressed="${i === start}" aria-label="Фото ${i + 1}">
+        <img src="img/${t.art}/${ph}_t.jpg" alt="" loading="lazy"></button>`).join('')}</div>
+    <p class="cap" id="cap">Фото ${start + 1} из ${t.photos.length}</p>`
+    : '<div class="main-ph"><div class="ph">Фотографии этой модели скоро появятся</div></div>';
+
+  const similar = tiles.filter(x => x.art !== t.art && x.photos.length && x.format === t.format)
+    .sort((a, b) => (b.surface === t.surface) - (a.surface === t.surface)).slice(0, 3);
 
   box.innerHTML = `
-    <a class="back" href="index.html">← Все модели</a>
-    <div class="tile">
-      <div>${gallery}</div>
-      <div class="side">
-        <h1>${esc(t.name)}${t.is_new ? ' <span class="tag new">Новинка</span>' : ''}</h1>
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Путь"><a href="index.html#catalog">Каталог</a><span aria-hidden="true">/</span>
+        <a href="index.html?f=${encodeURIComponent(t.format)}#catalog">${t.format}</a><span aria-hidden="true">/</span><span>${esc(t.name)}</span></nav>
+      <div class="tile">
+        <div class="gal">${gallery}</div>
+        <div class="side">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <p class="eyebrow">Керамогранит · ${t.format}</p>
+            <h1>${esc(t.name)}${t.is_new ? '<span class="tag-new">Новинка</span>' : ''}</h1>
+          </div>
 
-        <p class="h2">Характеристики</p>
-        <table class="spec">
-          <tr><th>Формат</th><td>${t.format} см</td></tr>
-          <tr><th>Поверхность</th><td>${esc(t.surface)}</td></tr>
-          <tr><th>Упаковка</th><td>${esc(t.packing)}</td></tr>
-          <tr><th>Паллета</th><td>${esc(t.pallet)}</td></tr>
-        </table>
+          <div class="wh">
+            <div class="main"><small>Склад Москва</small><b class="num">${m2(t.stock.msk)}</b>
+              <span>${freeMsk > 0 ? `${packs(freeMsk)} уп. свободно${t.stock.msk_res > 0 ? ` · резерв ${m2(t.stock.msk_res)}` : ''}` : 'сейчас нет'}</span></div>
+            <div><small>Склад Тверь</small><b class="num">${m2(t.stock.tver)}</b>
+              <span>${freeTver > 0 ? TVER_ETA_LOW : 'сейчас нет'}${t.stock.tver_res > 0 ? ` · резерв ${m2(t.stock.tver_res)}` : ''}</span></div>
+          </div>
 
-        <p class="h2">Остатки</p>
-        <table class="spec">
-          <tr><th>Склад Москва</th><td>${m2(t.stock.msk)}</td></tr>
-          <tr><th>Резерв Москва</th><td>${m2(t.stock.msk_res)}</td></tr>
-          <tr><th>Склад Тверь</th><td>${m2(t.stock.tver)}</td></tr>
-          <tr><th>Резерв Тверь</th><td>${m2(t.stock.tver_res)}</td></tr>
-          <tr><th>Свободно всего</th><td><b>${m2(t.stock.msk + t.stock.tver - t.stock.msk_res - t.stock.tver_res)}</b></td></tr>
-        </table>
-        ${t.stock.tver > 0 ? `<p class="eta-note">Со склада Тверь: ${TVER_ETA_LOW}.</p>` : ''}
+          <dl class="spec">
+            <dt>Формат</dt><dd>${t.format} см</dd>
+            <dt>Поверхность</dt><dd>${esc(t.surface)}</dd>
+            <dt>В упаковке</dt><dd>${packText(t)}</dd>
+            <dt>Паллета</dt><dd>${palletText(t)}</dd>
+          </dl>
 
-        <div class="qrbox">
-          <img src="qr/${t.art}.png" alt="QR-код модели ${esc(t.name)}">
-          <div>
-            <p>QR ведёт на эту страницу. Печатайте и ставьте рядом с образцом.</p>
-            <a class="dl" href="qr/${t.art}.png" download>Скачать QR</a>
-            <a class="dl" href="admin.html?a=${t.art}">Изменить фото</a>
+          ${p.sqm ? `<div class="calc">
+            <label for="need" class="eyebrow">Сколько нужно, м²</label>
+            <div class="row"><input id="need" inputmode="decimal" value="${nf(p.sqm * 10)}">
+              <span id="calc" role="status"></span></div>
+            <p>Отгружаем целыми упаковками, округляем вверх.</p></div>` : ''}
+
+          <div class="ctas">
+            <a class="btn solid" href="tel:+74993907888">Позвонить в шоу-рум</a>
+            <a class="btn" href="${wa}" target="_blank" rel="noopener">Написать в WhatsApp</a>
+          </div>
+          <p class="where"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span>Образец можно посмотреть в шоу-руме: Москва, ул. Монтажная, 3, этаж 4, офис 41. С 10:00 до 18:00.</span></p>
+
+          <div class="qrbox">
+            <img src="qr/${t.art}.png" alt="QR-код модели ${esc(t.name)}" width="112" height="112">
+            <div><b>QR-код этой модели</b>
+              <p>Тот же код, что напечатан на образце в шоу-руме, — ведёт на эту страницу.</p>
+              <span class="links"><a href="qr/${t.art}.png" download>Скачать QR</a><a href="print.html">Все коды на печать</a><a href="admin.html?a=${t.art}">Изменить фото</a></span>
+            </div>
           </div>
         </div>
       </div>
-    </div>`;
+    </div>
+    ${similar.length ? `<section class="similar"><div class="wrap"><h2>Похожие модели</h2>
+      <div class="grid">${similar.map(card).join('')}</div></div></section>` : ''}`;
+
+  const need = box.querySelector('#need'), calc = box.querySelector('#calc');
+  const recalc = () => {
+    const v = +need.value.replace(',', '.').replace(/[^\d.]/g, '');
+    const n = v > 0 ? Math.ceil(v / p.sqm - 1e-9) : 0;
+    calc.innerHTML = n ? `= <b>${n} уп.</b> · ${nf(n * p.sqm)} м²${p.kg ? ` · ${nf(n * p.kg, 0)} кг` : ''}` : 'Введите площадь';
+  };
+  need?.addEventListener('input', recalc);
+  if (need) recalc();
 
   const thumbs = box.querySelector('.thumbs');
-  let current = 0;
+  let current = start;
   thumbs?.addEventListener('click', e => {
-    const th = e.target.closest('img[data-i]'); if (!th) return;
+    const th = e.target.closest('button[data-i]'); if (!th) return;
     current = +th.dataset.i;
     document.getElementById('big').src = `img/${t.art}/${t.photos[current]}.jpg`;
-    thumbs.querySelectorAll('img').forEach(i => i.setAttribute('aria-current', i === th));
+    document.getElementById('cap').textContent = `Фото ${current + 1} из ${t.photos.length}`;
+    thumbs.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b === th));
   });
   box.querySelector('#big-wrap')?.addEventListener('click', () => lightbox(t.photos, t.art, current));
 }

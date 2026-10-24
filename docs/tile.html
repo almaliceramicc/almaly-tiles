@@ -3,20 +3,47 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Плитка — Алмалы-Керамик</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230c0e10'/><path d='M50 20 66 50 50 80 34 50z' fill='%23c9a227'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'><path d='M13 1 25 13 13 25 1 13z' fill='%23F5F1EA' stroke='%231C1D1F' stroke-width='1.6'/><path d='M13 7 19 13 13 19 7 13z' fill='%23D8202A'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2610242351">
+<link rel="stylesheet" href="style.css?v=2610251350">
+<body class="has-callbar">
+
 <header><div class="wrap head">
-  <a class="logo" href="index.html">Алмалы<span>·</span>Керамик</a>
-  <span class="sub">Керамогранит 60×60 и 60×120</span>
-  <a class="navlink" href="admin.html">Редактор</a>
+  <a class="logo" href="index.html" aria-label="Алмалы-Керамик, на главную">
+    <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 1 25 13 13 25 1 13z" fill="none" stroke="#1C1D1F" stroke-width="1.6"/><path d="M13 7 19 13 13 19 7 13z" fill="#D8202A"/></svg>
+    <span class="w"><b>ALMALI</b><small>CERAMIC</small></span>
+  </a>
+  <nav class="nav" aria-label="Разделы">
+    <a href="index.html#catalog">Каталог</a>
+    <a href="index.html?f=60×60#catalog">60×60</a>
+    <a href="index.html?f=60×120#catalog">60×120</a>
+    <a href="index.html#showroom">Шоу-рум</a>
+    <a href="https://almaliceramicc.github.io/almaly-dealers/">Дилерам</a>
+  </nav>
+  <div class="contact">
+    <a class="tel" href="tel:+74993907888">+7 499 390-78-88</a>
+    <a class="btn" href="https://wa.me/79253907888" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="icon-btn" href="tel:+74993907888" aria-label="Позвонить в шоу-рум">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
 </div></header>
-<main class="wrap" id="tile"></main>
-<footer><div class="wrap foot"><span>ООО «Алмалы-Керамик»</span>
-  <span>Москва, ул. Монтажная, 3, офис 41 · <a href="tel:+74993907888">+7 499 390-78-88</a></span>
+
+<main id="tile"></main>
+
+<footer><div class="wrap foot">
+  <span>ООО «Алмалы-Керамик»</span>
+  <span>Москва, ул. Монтажная, 3, офис 41 · <a href="tel:+74993907888">+7 499 390-78-88</a> · с 10:00 до 18:00</span>
   <a href="mailto:almaliceramic@mail.ru">almaliceramic@mail.ru</a>
-  <a class="navlink" href="index.html">Весь каталог</a></div></footer>
-<script src="app.js?v=2610242351"></script>
+  <span class="r"><a href="index.html#catalog">Весь каталог</a><a href="print.html">QR-коды на печать</a></span>
+</div></footer>
+
+<div class="callbar">
+  <a class="btn solid" href="tel:+74993907888">Позвонить</a>
+  <a class="btn" href="https://wa.me/79253907888" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<script src="app.js?v=2610251350"></script>
 <script>renderTile()</script>
