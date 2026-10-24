@@ -61,7 +61,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(245,241,234,.94);backdro
 .stats b{font-size:34px;line-height:1}
 .stats span{font-size:13px;color:var(--dim)}
 .hero figure{margin:0;position:relative}
-.hero figure img{width:100%;aspect-ratio:4/5;max-height:calc(100vh - 160px);min-height:420px;object-fit:cover;border-radius:var(--radius);background:var(--ph)}
+.hero figure img{width:100%;height:auto;aspect-ratio:4/5;max-height:calc(100vh - 160px);min-height:420px;object-fit:cover;border-radius:var(--radius);background:var(--ph)}
 .hero figcaption{position:absolute;left:20px;bottom:20px;background:var(--bg);padding:12px 16px;border-radius:var(--radius);
   display:flex;flex-direction:column;gap:2px}
 .hero figcaption b{font-family:var(--serif);font-weight:500;font-size:22px}
@@ -74,6 +74,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(245,241,234,.94);backdro
 .count{font-size:14px;color:var(--dim)}
 .tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:16px 0;margin-bottom:40px;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.filter-group{display:contents}
 .chip{font:500 14px var(--sans);min-height:44px;padding:10px 20px;border-radius:999px;border:1px solid var(--line2);
   background:transparent;color:var(--ink);cursor:pointer}
 .chip:hover{border-color:var(--ink)}
@@ -186,20 +187,32 @@ footer{border-top:1px solid var(--line);color:var(--dim);font-size:13px}
 
 @media(max-width:860px){
   .wrap{padding:0 16px}
-  .head{gap:12px;padding-block:12px;flex-wrap:nowrap}
-  .nav,.head .tel,.head .btn{display:none}
+  .head{gap:8px 12px;padding-block:8px;flex-wrap:wrap}
+  .head .tel,.head .btn{display:none}
+  .nav{display:flex;order:3;width:100%;flex-wrap:nowrap;gap:20px;overflow-x:auto;scrollbar-width:thin}
+  .nav a{display:flex;align-items:center;min-height:44px;flex:none}
   .head .contact{gap:8px}
   .icon-btn{display:inline-flex}
-  .hero{padding-block:16px 40px;gap:24px}
-  .hero figure{order:-1}
+  .hero{padding-block:24px 32px;gap:24px;grid-template-columns:minmax(0,1fr)}
+  .hero-text{gap:16px}
+  .hero h1{font-size:clamp(34px,9vw,46px)}
+  .hero figure img{aspect-ratio:16/9;min-height:0;max-height:240px}
+  .hero figcaption{left:12px;bottom:12px;padding:8px 12px}
+  .hero figcaption b{font-size:20px}
   .hero .lead{font-size:16px}
   .hero .ctas .btn{flex:1 1 100%}
-  .stats{gap:28px}
+  .stats{gap:12px;justify-content:space-between;padding-top:16px}
+  .stats div{flex:1;min-width:0}
+  .stats span{font-size:12px}
   .stats b{font-size:28px}
   .cat-hd h2{font-size:38px}
-  .tools{flex-wrap:nowrap;overflow-x:auto;margin-inline:-16px;padding-inline:16px;margin-bottom:28px}
+  .cat{scroll-margin-top:120px}
+  .tools{gap:10px;flex-wrap:wrap;margin-bottom:24px}
+  .filter-group{display:flex;gap:8px;width:100%;min-width:0;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+  .tools .sep{display:none}
   .tools .chip{flex:none}
-  .search{order:-1;min-width:220px;flex:none;margin-left:0}
+  .search{order:-1;min-width:0;width:100%;flex:1 0 100%;margin-left:0;min-height:48px}
+  .search input{font-size:16px;min-height:46px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 12px}
   .card{gap:8px}
   .card h3{font-size:21px}
@@ -209,9 +222,13 @@ footer{border-top:1px solid var(--line);color:var(--dim);font-size:13px}
   .card .fmt{top:8px;left:8px;font-size:11px}
   .showroom .in{padding-block:48px 64px;gap:28px}
   .tile{gap:28px;padding-block:20px 48px}
+  .thumbs{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
+  .thumbs button{flex:0 0 64px;scroll-snap-align:start}
+  .wh div{padding:14px 12px}
+  .spec{gap:0 12px;font-size:14px}
   .side{position:static}
   .similar .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  body.has-callbar{padding-bottom:84px}
+  body.has-callbar{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   .callbar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:30;
     padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line)}
   .callbar .btn{min-height:48px;padding:12px}
