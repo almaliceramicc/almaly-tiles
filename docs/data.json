@@ -780,6 +780,35 @@
    ]
   },
   {
+   "art": "VHJ600001",
+   "name": "Арктик Карвинг",
+   "format": "60×60",
+   "surface": "Карвинг",
+   "packing": "1 уп-5 шт-1,8 м2-36кг",
+   "pallet": "1пал-46,8м2-26 уп-936кг",
+   "stock": {
+    "msk": 154.08,
+    "tver": 718.92,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHJ600001",
+   "is_new": false,
+   "photos": [
+    "01.a5be7d4a",
+    "02.3ccdcb64",
+    "03.aea59e8c",
+    "04.419e303a",
+    "05.4e6b1336",
+    "06.42d94dc4",
+    "07.65fafaf2",
+    "08.159649d9",
+    "09.89ea8f7c",
+    "10.63ae659f",
+    "11.0562e1c3"
+   ]
+  },
+  {
    "art": "VHF600801",
    "name": "Асфальт Грей Лайт",
    "format": "60×60",
@@ -1966,23 +1995,6 @@
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612132",
    "is_new": true,
-   "photos": []
-  },
-  {
-   "art": "VHJ600001",
-   "name": "Арктик Карвинг",
-   "format": "60×60",
-   "surface": "Карвинг",
-   "packing": "1 уп-5 шт-1,8 м2-36кг",
-   "pallet": "1пал-46,8м2-26 уп-936кг",
-   "stock": {
-    "msk": 154.08,
-    "tver": 718.92,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHJ600001",
-   "is_new": false,
    "photos": []
   },
   {
