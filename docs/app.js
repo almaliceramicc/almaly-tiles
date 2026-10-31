@@ -50,8 +50,8 @@ const stockLine = t => t.stock.msk > 0 || t.stock.tver > 0
 
 const card = t => `
   <a class="card" href="tile.html?a=${t.art}">
-    <div class="ph">${cover(t)}<span class="fmt">${t.format}</span>${t.is_new ? '<span class="new">Новинка</span>' : ''}</div>
-    <div class="nm"><h3>${esc(t.name)}</h3><span class="srf">${esc(t.surface)}</span></div>
+    <div class="ph">${cover(t)}</div>
+    <div class="nm"><h3>${esc(t.name)}</h3><span class="srf">${t.is_new ? '<span class="new">Новинка</span>' : ''}${parts([t.format, esc(t.surface)])}</span></div>
     <div class="stock">${stockLine(t)}</div>
   </a>`;
 

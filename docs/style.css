@@ -90,17 +90,16 @@ header{position:sticky;top:0;z-index:20;background:rgba(241,234,223,.94);backdro
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:48px 32px}
 .card{display:flex;flex-direction:column;gap:14px;text-decoration:none;color:var(--ink)}
 .card:hover{color:var(--ink)}
-.card .ph{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:var(--radius);background:var(--ph);
+.card .ph{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:var(--radius);background:var(--ph);
   display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:13px}
-.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card .ph img{width:100%;height:100%;object-fit:contain;transition:transform .6s ease}
 .card .ph .alt{position:absolute;inset:0;opacity:0;transition:opacity .45s ease,transform .6s ease}
 @media(hover:hover){.card:hover .ph img{transform:scale(1.03)}.card:hover .ph .alt,.card:focus-visible .ph .alt{opacity:1}}
-.card .fmt{position:absolute;top:14px;left:14px;background:var(--bg);font-size:12px;font-weight:500;padding:5px 10px;border-radius:999px}
-.card .new{position:absolute;top:14px;right:14px;background:var(--ink);color:var(--bg);font-size:11px;font-weight:600;
-  letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
-.card .nm{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.card .new{display:inline-block;margin-right:8px;background:var(--ink);color:var(--bg);font-size:10px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;vertical-align:1px}
+.card .nm{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;column-gap:16px;row-gap:4px}
 .card h3{font-size:30px;line-height:1.1}
-.card .srf{font-size:13px;color:var(--dim);white-space:nowrap}
+.card .srf{font-size:13px;color:var(--dim)}
 .card .stock{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--dim);padding-top:12px;border-top:1px solid var(--line)}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--brass);flex:none}
 .card .stock .lines{display:flex;flex-wrap:wrap;column-gap:2px}
@@ -135,12 +134,12 @@ footer{border-top:1px solid var(--line);color:var(--dim);font-size:13px}
 .tile{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;padding-block:32px 88px}
 .gal{flex:999 1 500px;min-width:0;display:flex;flex-direction:column;gap:12px}
 .main-ph{border:0;padding:0;background:var(--ph);border-radius:var(--radius);overflow:hidden;cursor:zoom-in;display:block;width:100%}
-.main-ph img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.main-ph .ph{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:14px}
+.main-ph img{width:100%;aspect-ratio:3/4;max-height:calc(100vh - 140px);object-fit:contain}
+.main-ph .ph{aspect-ratio:3/4;max-height:calc(100vh - 140px);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:14px}
 .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:10px}
 .thumbs button{padding:0;border:2px solid transparent;border-radius:var(--radius);background:var(--ph);cursor:pointer;overflow:hidden;min-height:44px}
 .thumbs button[aria-pressed=true]{border-color:var(--ink)}
-.thumbs img{width:100%;aspect-ratio:1;object-fit:cover}
+.thumbs img{width:100%;aspect-ratio:3/4;object-fit:cover}
 .gal .cap{margin:0;font-size:13px;color:var(--dim)}
 .side{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:26px;position:sticky;top:96px}
 .side h1{font-size:clamp(46px,5vw,72px);line-height:1}
@@ -173,7 +172,7 @@ footer{border-top:1px solid var(--line);color:var(--dim);font-size:13px}
 .similar{border-top:1px solid var(--line);padding-block:64px 88px}
 .similar h2{font-size:44px;line-height:1;margin-bottom:32px}
 .similar .grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
-.similar .card .ph{aspect-ratio:4/3}
+.similar .card .ph{aspect-ratio:3/4}
 .similar .card h3{font-size:26px}
 .missing{padding-block:64px;font-size:17px}
 
@@ -228,7 +227,6 @@ footer{border-top:1px solid var(--line);color:var(--dim);font-size:13px}
   .card .nm{flex-direction:column;gap:2px;align-items:flex-start}
   .card .srf{font-size:12px}
   .card .stock{font-size:12px;padding-top:8px}
-  .card .fmt{top:8px;left:8px;font-size:11px}
   .showroom .in{padding-block:48px 64px;gap:28px}
   .tile{gap:28px;padding-block:20px 48px}
   .thumbs{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
