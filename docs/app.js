@@ -1,11 +1,15 @@
 const load = fetch('data.json', {cache: 'no-cache'}).then(r => r.json());
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const nf = (v, d = 2) => v.toLocaleString('ru-RU', {maximumFractionDigits: d});
-const m2 = v => v > 0 ? nf(v) + ' м²' : '—';
-const m2r = v => v > 0 ? nf(v, 0) + ' м²' : '—';     // на карточках — без копеек
+/* Число и единица не разрываются переносом строки (иначе «72» остаётся в конце строки, а «м²» — на следующей). */
+const NB = '\u00A0';
+const m2 = v => v > 0 ? nf(v) + NB + 'м²' : '—';
+const m2r = v => v > 0 ? nf(v, 0) + NB + 'м²' : '—';     // на карточках — без копеек
+/** Куски, которые переносятся только целиком: «Москва 153 м²» / «Тверь 562 м²». */
+const parts = list => list.filter(Boolean).map(x => `<span class="nw">${x}</span>`).join('<span class="sep-dot"> · </span>');
 const WA = 'https://wa.me/79253907888';
 /** Довоз со склада Тверь в Москву — один день. */
-const TVER_ETA_LOW = 'довоз в Москву — 1 день';
+const TVER_ETA_LOW = 'довоз в Москву — 1\u00A0день';
 
 /* Обложка карточки — интерьерный кадр. По схеме владельца интерьер пятый (ванная);
    у моделей, где кадры стоят иначе, номер задан вручную (1 = первый кадр).
@@ -32,16 +36,16 @@ function pack(s) {
 }
 const packText = t => {
   const p = pack(t.packing);
-  return p.sqm ? [p.pcs && `${p.pcs} плит${p.pcs < 5 ? 'ки' : 'ок'}`, `${nf(p.sqm)} м²`, p.kg && `${nf(p.kg, 1)} кг`]
-    .filter(Boolean).join(' · ') : esc(t.packing);
+  return p.sqm ? parts([p.pcs && `${p.pcs}${NB}плит${p.pcs < 5 ? 'ки' : 'ок'}`, `${nf(p.sqm)}${NB}м²`, p.kg && `${nf(p.kg, 1)}${NB}кг`])
+    : esc(t.packing);
 };
 const palletText = t => {
   const p = pack(t.pallet);
-  return p.sqm ? [p.packs && `${p.packs} упаковок`, `${nf(p.sqm)} м²`, p.kg && `${nf(p.kg, 0)} кг`]
-    .filter(Boolean).join(' · ') : esc(t.pallet);
+  return p.sqm ? parts([p.packs && `${p.packs}${NB}упаковок`, `${nf(p.sqm)}${NB}м²`, p.kg && `${nf(p.kg, 0)}${NB}кг`])
+    : esc(t.pallet);
 };
 const stockLine = t => t.stock.msk > 0 || t.stock.tver > 0
-  ? `<span class="dot"></span><span>Москва ${m2r(t.stock.msk)} · Тверь ${m2r(t.stock.tver)}</span>`
+  ? `<span class="dot"></span><span class="lines">${parts([`Москва ${m2r(t.stock.msk)}`, `Тверь ${m2r(t.stock.tver)}`])}</span>`
   : '<span class="dot off"></span><span>Под заказ</span>';
 
 const card = t => `
@@ -161,9 +165,9 @@ async function renderTile() {
 
           <div class="wh">
             <div class="main"><small>Склад Москва</small><b class="num">${m2(t.stock.msk)}</b>
-              <span>${freeMsk > 0 ? `${packs(freeMsk)} уп. свободно${t.stock.msk_res > 0 ? ` · резерв ${m2(t.stock.msk_res)}` : ''}` : 'сейчас нет'}</span></div>
+              <span>${freeMsk > 0 ? `<span class="nw">${packs(freeMsk)}${NB}уп. свободно</span>${t.stock.msk_res > 0 ? `<span class="nw">резерв ${m2(t.stock.msk_res)}</span>` : ''}` : 'сейчас нет'}</span></div>
             <div><small>Склад Тверь</small><b class="num">${m2(t.stock.tver)}</b>
-              <span>${freeTver > 0 ? TVER_ETA_LOW : 'сейчас нет'}${t.stock.tver_res > 0 ? ` · резерв ${m2(t.stock.tver_res)}` : ''}</span></div>
+              <span>${freeTver > 0 ? `<span class="nw">${TVER_ETA_LOW}</span>` : 'сейчас нет'}${t.stock.tver_res > 0 ? `<span class="nw">резерв ${m2(t.stock.tver_res)}</span>` : ''}</span></div>
           </div>
 
           <dl class="spec">
@@ -203,7 +207,7 @@ async function renderTile() {
   const recalc = () => {
     const v = +need.value.replace(',', '.').replace(/[^\d.]/g, '');
     const n = v > 0 ? Math.ceil(v / p.sqm - 1e-9) : 0;
-    calc.innerHTML = n ? `= <b>${n} уп.</b> · ${nf(n * p.sqm)} м²${p.kg ? ` · ${nf(n * p.kg, 0)} кг` : ''}` : 'Введите площадь';
+    calc.innerHTML = n ? '= ' + parts([`<b>${n}${NB}уп.</b>`, `${nf(n * p.sqm)}${NB}м²`, p.kg && `${nf(n * p.kg, 0)}${NB}кг`]) : 'Введите площадь';
   };
   need?.addEventListener('input', recalc);
   if (need) recalc();
