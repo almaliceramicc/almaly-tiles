@@ -1009,6 +1009,33 @@
    ]
   },
   {
+   "art": "VHF600268",
+   "name": "Зевс Грей Лайт",
+   "format": "60×60",
+   "surface": "Матовая",
+   "packing": "1 уп-5 шт-1,8 м2-36кг",
+   "pallet": "1пал-46,8м2-26 уп-936кг",
+   "stock": {
+    "msk": 0.0,
+    "tver": 0.0,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600268",
+   "is_new": true,
+   "photos": [
+    "01.597d569f",
+    "02.dcdeb3aa",
+    "03.5b4625bb",
+    "04.2499e591",
+    "05.566f01d0",
+    "06.bebb6690",
+    "07.5b806fb8",
+    "08.4990ba48",
+    "09.003dd578"
+   ]
+  },
+  {
    "art": "VHF600818",
    "name": "Ивори Стоун",
    "format": "60×60",
@@ -1932,23 +1959,6 @@
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600309",
-   "is_new": true,
-   "photos": []
-  },
-  {
-   "art": "VHF600268",
-   "name": "Зевс Грей Лайт",
-   "format": "60×60",
-   "surface": "Матовая",
-   "packing": "1 уп-5 шт-1,8 м2-36кг",
-   "pallet": "1пал-46,8м2-26 уп-936кг",
-   "stock": {
-    "msk": 0.0,
-    "tver": 0.0,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600268",
    "is_new": true,
    "photos": []
   },
