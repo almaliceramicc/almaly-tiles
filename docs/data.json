@@ -158,32 +158,6 @@
    ]
   },
   {
-   "art": "VHP612098",
-   "name": "Грей Марбл Стоун",
-   "format": "60×120",
-   "surface": "Глянец",
-   "packing": "1 уп-2шт-1,44м2-27 кг",
-   "pallet": "1пал-72м2-50уп-1350кг",
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612098",
-   "is_new": false,
-   "stock": {
-    "msk": 0.0,
-    "tver": 0.0,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "photos": [
-    "01.c5e80bd0",
-    "02.8f706895",
-    "03.ac14bd45",
-    "04.2d983f97",
-    "05.d986ae09",
-    "06.251631c5",
-    "07.afc5272f",
-    "08.c5617232"
-   ]
-  },
-  {
    "art": "VHP612390",
    "name": "Лейла",
    "format": "60×120",
