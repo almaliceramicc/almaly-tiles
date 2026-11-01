@@ -158,6 +158,33 @@
    ]
   },
   {
+   "art": "VHF612501",
+   "name": "Бетон Лайт",
+   "format": "60×120",
+   "surface": "Матовая",
+   "packing": "1 уп-2шт-1,44м2-28,8 кг",
+   "pallet": "1пал-72м2-50уп-1440кг",
+   "stock": {
+    "msk": 217.44,
+    "tver": 203.04,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612501",
+   "is_new": false,
+   "photos": [
+    "01.67d97378",
+    "02.8999d61b",
+    "03.7be131b9",
+    "04.d1a934b0",
+    "05.a07819f4",
+    "06.9ed795e5",
+    "07.0caf78a4",
+    "08.2fce76a9",
+    "09.0d5f4f2b"
+   ]
+  },
+  {
    "art": "VHP612390",
    "name": "Лейла",
    "format": "60×120",
@@ -1645,23 +1672,6 @@
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612443",
    "is_new": true,
-   "photos": []
-  },
-  {
-   "art": "VHF612501",
-   "name": "Бетон Лайт",
-   "format": "60×120",
-   "surface": "Матовая",
-   "packing": "1 уп-2шт-1,44м2-28,8 кг",
-   "pallet": "1пал-72м2-50уп-1440кг",
-   "stock": {
-    "msk": 217.44,
-    "tver": 203.04,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612501",
-   "is_new": false,
    "photos": []
   },
   {
