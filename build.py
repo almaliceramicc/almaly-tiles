@@ -31,6 +31,19 @@ SURFACE = {"ГЛ": "Глянец", "MT": "Матовая", "МТ": "Матова
            "КАРВИНГ": "Карвинг", "ПАНЧ КАРВИНГ": "Панч-карвинг"}
 
 
+
+def order_rank():
+    """Артикул -> место из order.txt; не указанные идут после, по алфавиту."""
+    p = Path(__file__).parent / "order.txt"
+    lines = p.read_text(encoding="utf-8").splitlines() if p.exists() else []
+    arts = [l.split("#")[0].strip().upper() for l in lines]
+    return {a: i for i, a in enumerate(a for a in arts if a)}
+
+
+def tile_key(t, rank=None):
+    rank = order_rank() if rank is None else rank
+    return (not t["photos"], t["format"], rank.get(t["art"].upper(), len(rank)), t["name"])
+
 def norm(s):
     return " ".join(unicodedata.normalize("NFC", s).upper().replace("Ё", "Е").split())
 
@@ -159,7 +172,7 @@ def main():
     for t in tiles:
         t["photos"] = make_images(t)
         make_qr(t)
-    tiles.sort(key=lambda t: (not t["photos"], t["format"], t["name"]))   # с фото — первыми
+    tiles.sort(key=lambda t, r=order_rank(): tile_key(t, r))   # с фото — первыми
     (SITE / "data.json").write_text(
         json.dumps({"base": BASE, "tiles": tiles}, ensure_ascii=False, indent=1), encoding="utf-8")
     shutil.copytree(QR, SITE / "qr", dirs_exist_ok=True)   # QR доступны и с сайта
