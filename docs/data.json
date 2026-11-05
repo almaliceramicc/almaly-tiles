@@ -266,6 +266,33 @@
    ]
   },
   {
+   "art": "VHF612822",
+   "name": "Лиам Крем Мат",
+   "format": "60×120",
+   "surface": "Матовая",
+   "packing": "1 уп-2шт-1,44м2-28,8 кг",
+   "pallet": "1пал-72м2-50уп-1440кг",
+   "stock": {
+    "msk": 0.0,
+    "tver": 0.0,
+    "msk_res": 17.28,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612822",
+   "is_new": false,
+   "photos": [
+    "01.401da27c",
+    "02.3655bffb",
+    "03.8d6d0ef1",
+    "04.56b856e3",
+    "05.42585eb2",
+    "06.5ab77ca5",
+    "07.307076bf",
+    "08.98f3946c",
+    "09.70bd5d31"
+   ]
+  },
+  {
    "art": "VHP612826",
    "name": "Минерал Грей",
    "format": "60×120",
@@ -1886,23 +1913,6 @@
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612440",
    "is_new": true,
-   "photos": []
-  },
-  {
-   "art": "VHF612822",
-   "name": "Лиам Крем Мат",
-   "format": "60×120",
-   "surface": "Матовая",
-   "packing": "1 уп-2шт-1,44м2-28,8 кг",
-   "pallet": "1пал-72м2-50уп-1440кг",
-   "stock": {
-    "msk": 0.0,
-    "tver": 0.0,
-    "msk_res": 17.28,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612822",
-   "is_new": false,
    "photos": []
   },
   {
