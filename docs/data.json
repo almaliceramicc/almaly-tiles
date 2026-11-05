@@ -185,6 +185,34 @@
    ]
   },
   {
+   "art": "VHF612816",
+   "name": "Каро Вайт",
+   "format": "60×120",
+   "surface": "Матовая",
+   "packing": "1 уп-2шт-1,44м2-28,8 кг",
+   "pallet": "1пал-72м2-50уп-1440кг",
+   "stock": {
+    "msk": 214.52,
+    "tver": 341.28,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612816",
+   "is_new": false,
+   "photos": [
+    "01.1d2d52b3",
+    "02.1e2df637",
+    "03.977ee5be",
+    "04.f63f246a",
+    "05.b69f83b3",
+    "06.37ca7aa0",
+    "07.ba02ba89",
+    "08.5c6e21f3",
+    "09.ef1c23e3",
+    "10.f2677946"
+   ]
+  },
+  {
    "art": "VHP612390",
    "name": "Лейла",
    "format": "60×120",
@@ -192,9 +220,9 @@
    "packing": "1 уп-2шт-1,44м2-28,8 кг",
    "pallet": "1пал-72м2-50уп-1440кг",
    "stock": {
-    "msk": 85.68,
+    "msk": 78.48,
     "tver": 103.68,
-    "msk_res": 27.36,
+    "msk_res": 34.56,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612390",
@@ -299,7 +327,7 @@
    "stock": {
     "msk": 2.16,
     "tver": 144.0,
-    "msk_res": 0.0,
+    "msk_res": 20.16,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612039",
@@ -346,9 +374,9 @@
    "packing": "1 уп-2шт-1,44м2-28,8 кг",
    "pallet": "1пал-72м2-50уп-1440кг",
    "stock": {
-    "msk": 241.92,
+    "msk": 205.92,
     "tver": 748.08,
-    "msk_res": 0.0,
+    "msk_res": 36.0,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612808",
@@ -374,7 +402,7 @@
    "stock": {
     "msk": 273.16,
     "tver": 225.36,
-    "msk_res": 44.64,
+    "msk_res": 0.0,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612037",
@@ -450,9 +478,9 @@
    "packing": "1 уп-2шт-1,44м2-28,8 кг",
    "pallet": "1пал-72м2-50уп-1440кг",
    "stock": {
-    "msk": 108.0,
+    "msk": 112.32,
     "tver": 429.12,
-    "msk_res": 344.16,
+    "msk_res": 0.0,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612042",
@@ -501,7 +529,7 @@
    "stock": {
     "msk": 176.04,
     "tver": 183.92,
-    "msk_res": 76.24,
+    "msk_res": 33.12,
     "tver_res": 200.16
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612122",
@@ -577,7 +605,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 190.8,
+    "msk": 181.8,
     "tver": 447.84,
     "msk_res": 0.0,
     "tver_res": 93.6
@@ -660,7 +688,7 @@
    "stock": {
     "msk": 314.64,
     "tver": 505.8,
-    "msk_res": 10.8,
+    "msk_res": 0.0,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHJ600010",
@@ -876,7 +904,7 @@
    "stock": {
     "msk": 225.36,
     "tver": 120.96,
-    "msk_res": 73.8,
+    "msk_res": 0.0,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600865",
@@ -897,9 +925,9 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 260.28,
+    "msk": 236.88,
     "tver": 2854.8,
-    "msk_res": 95.4,
+    "msk_res": 118.8,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600849",
@@ -951,7 +979,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 208.8,
+    "msk": 167.4,
     "tver": 190.8,
     "msk_res": 1.8,
     "tver_res": 0.0
@@ -1055,7 +1083,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 289.8,
+    "msk": 282.6,
     "tver": 552.6,
     "msk_res": 0.0,
     "tver_res": 0.0
@@ -1136,7 +1164,7 @@
    "stock": {
     "msk": 263.16,
     "tver": 264.6,
-    "msk_res": 45.0,
+    "msk_res": 0.0,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600224",
@@ -1187,9 +1215,9 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 225.36,
+    "msk": 210.96,
     "tver": 1063.44,
-    "msk_res": 0.0,
+    "msk_res": 14.4,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600818",
@@ -1289,7 +1317,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 279.36,
+    "msk": 198.36,
     "tver": 185.4,
     "msk_res": 0.0,
     "tver_res": 187.2
@@ -1317,7 +1345,7 @@
    "stock": {
     "msk": 185.04,
     "tver": 1044.0,
-    "msk_res": 27.0,
+    "msk_res": 0.0,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600288",
@@ -1824,23 +1852,6 @@
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612444",
    "is_new": true,
-   "photos": []
-  },
-  {
-   "art": "VHF612816",
-   "name": "Каро Вайт",
-   "format": "60×120",
-   "surface": "Матовая",
-   "packing": "1 уп-2шт-1,44м2-28,8 кг",
-   "pallet": "1пал-72м2-50уп-1440кг",
-   "stock": {
-    "msk": 214.52,
-    "tver": 341.28,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612816",
-   "is_new": false,
    "photos": []
   },
   {
