@@ -185,6 +185,33 @@
    ]
   },
   {
+   "art": "VHF612114",
+   "name": "Галина Грей Мат",
+   "format": "60×120",
+   "surface": "Матовая",
+   "packing": "1 уп-2шт-1,44м2-28,8 кг",
+   "pallet": "1пал-72м2-50уп-1440кг",
+   "stock": {
+    "msk": 44.64,
+    "tver": 0.0,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612114",
+   "is_new": false,
+   "photos": [
+    "01.9ef28828",
+    "02.a1a29453",
+    "03.46b0b9fd",
+    "04.0854cbd9",
+    "05.dd919237",
+    "06.4fa8c701",
+    "07.a873bb8b",
+    "08.5d245c57",
+    "09.fc7afc51"
+   ]
+  },
+  {
    "art": "VHF612816",
    "name": "Каро Вайт",
    "format": "60×120",
@@ -1828,23 +1855,6 @@
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612133",
    "is_new": true,
-   "photos": []
-  },
-  {
-   "art": "VHF612114",
-   "name": "Галина Грей Мат",
-   "format": "60×120",
-   "surface": "Матовая",
-   "packing": "1 уп-2шт-1,44м2-28,8 кг",
-   "pallet": "1пал-72м2-50уп-1440кг",
-   "stock": {
-    "msk": 44.64,
-    "tver": 0.0,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612114",
-   "is_new": false,
    "photos": []
   },
   {
