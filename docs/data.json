@@ -1433,9 +1433,9 @@
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
     "msk": 179.28,
-    "tver": 352.8,
+    "tver": 306.0,
     "msk_res": 0.0,
-    "tver_res": 140.4
+    "tver_res": 187.2
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600813",
    "is_new": false,
