@@ -190,6 +190,41 @@
    ]
   },
   {
+   "art": "VHF612133",
+   "name": "Вуд Чикаго Браун",
+   "format": "60×120",
+   "surface": "Матовая",
+   "packing": "1 уп-2шт-1,44м2-28,8 кг",
+   "pallet": "1пал-72м2-50уп-1440кг",
+   "stock": {
+    "msk": 0.0,
+    "tver": 0.0,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612133",
+   "is_new": true,
+   "photos": [
+    "01.9f23f581",
+    "02.0247d354",
+    "03.52f5760c",
+    "04.99a8fb2c",
+    "05.df2ba160",
+    "06.34011d0b",
+    "07.a8597590",
+    "08.84f6753c",
+    "09.f740d66d",
+    "10.33a1de32",
+    "11.d357d055",
+    "12.858d07f6",
+    "13.9d539a25",
+    "14.f5996b93",
+    "15.ad0e89fe",
+    "16.4e31b2b4",
+    "17.2e8b8bd2"
+   ]
+  },
+  {
    "art": "VHF612114",
    "name": "Галина Грей Мат",
    "format": "60×120",
@@ -1916,23 +1951,6 @@
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612134",
-   "is_new": true,
-   "photos": []
-  },
-  {
-   "art": "VHF612133",
-   "name": "Вуд Чикаго Браун",
-   "format": "60×120",
-   "surface": "Матовая",
-   "packing": "1 уп-2шт-1,44м2-28,8 кг",
-   "pallet": "1пал-72м2-50уп-1440кг",
-   "stock": {
-    "msk": 0.0,
-    "tver": 0.0,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612133",
    "is_new": true,
    "photos": []
   },
