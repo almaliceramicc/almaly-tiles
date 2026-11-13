@@ -190,6 +190,32 @@
    ]
   },
   {
+   "art": "VHF612857",
+   "name": "Вуд Монтано",
+   "format": "60×120",
+   "surface": "Матовая",
+   "packing": "1 уп-2шт-1,44м2-28,8 кг",
+   "pallet": "1пал-72м2-50уп-1440кг",
+   "stock": {
+    "msk": 0.0,
+    "tver": 0.0,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612857",
+   "is_new": true,
+   "photos": [
+    "01.1ac0664d",
+    "02.dec7b6f8",
+    "03.3ce6e285",
+    "04.bd90d007",
+    "05.72aeaa57",
+    "06.99407f33",
+    "07.c9a0fa54",
+    "08.a3e99250"
+   ]
+  },
+  {
    "art": "VHF612133",
    "name": "Вуд Чикаго Браун",
    "format": "60×120",
@@ -1917,23 +1943,6 @@
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612135",
-   "is_new": true,
-   "photos": []
-  },
-  {
-   "art": "VHF612857",
-   "name": "Вуд Монтано",
-   "format": "60×120",
-   "surface": "Матовая",
-   "packing": "1 уп-2шт-1,44м2-28,8 кг",
-   "pallet": "1пал-72м2-50уп-1440кг",
-   "stock": {
-    "msk": 0.0,
-    "tver": 0.0,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612857",
    "is_new": true,
    "photos": []
   },
