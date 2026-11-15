@@ -190,6 +190,33 @@
    ]
   },
   {
+   "art": "VHF612135",
+   "name": "Вуд Калифорния",
+   "format": "60×120",
+   "surface": "Матовая",
+   "packing": "1 уп-2шт-1,44м2-28,8 кг",
+   "pallet": "1пал-72м2-50уп-1440кг",
+   "stock": {
+    "msk": 0.0,
+    "tver": 0.0,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612135",
+   "is_new": true,
+   "photos": [
+    "01.84f41763",
+    "02.832dbccd",
+    "03.54467858",
+    "04.e0a1a2c6",
+    "05.166e08e1",
+    "06.416a91fa",
+    "07.7290f3fb",
+    "08.21fe6f26",
+    "09.9613f027"
+   ]
+  },
+  {
    "art": "VHF612857",
    "name": "Вуд Монтано",
    "format": "60×120",
@@ -1926,23 +1953,6 @@
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612443",
-   "is_new": true,
-   "photos": []
-  },
-  {
-   "art": "VHF612135",
-   "name": "Вуд Калифорния",
-   "format": "60×120",
-   "surface": "Матовая",
-   "packing": "1 уп-2шт-1,44м2-28,8 кг",
-   "pallet": "1пал-72м2-50уп-1440кг",
-   "stock": {
-    "msk": 0.0,
-    "tver": 0.0,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612135",
    "is_new": true,
    "photos": []
   },
