@@ -242,6 +242,31 @@
    ]
   },
   {
+   "art": "VHF612158",
+   "name": "Вуд Невада",
+   "format": "60×120",
+   "surface": "Матовая",
+   "packing": "1 уп-2шт-1,44м2-28,8 кг",
+   "pallet": "1пал-72м2-50уп-1440кг",
+   "stock": {
+    "msk": 0.0,
+    "tver": 0.0,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612158",
+   "is_new": true,
+   "photos": [
+    "01.1af3602a",
+    "02.f5ffd4fe",
+    "03.573391f5",
+    "04.8e1017d3",
+    "05.8a477858",
+    "06.c91e667e",
+    "07.f0937507"
+   ]
+  },
+  {
    "art": "VHF612133",
    "name": "Вуд Чикаго Браун",
    "format": "60×120",
@@ -1952,23 +1977,6 @@
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612443",
-   "is_new": true,
-   "photos": []
-  },
-  {
-   "art": "VHF612158",
-   "name": "Вуд Невада",
-   "format": "60×120",
-   "surface": "Матовая",
-   "packing": "1 уп-2шт-1,44м2-28,8 кг",
-   "pallet": "1пал-72м2-50уп-1440кг",
-   "stock": {
-    "msk": 0.0,
-    "tver": 0.0,
-    "msk_res": 0.0,
-    "tver_res": 0.0
-   },
-   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612158",
    "is_new": true,
    "photos": []
   },
