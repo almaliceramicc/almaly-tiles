@@ -1956,6 +1956,23 @@
    "photos": []
   },
   {
+   "art": "VHF612158",
+   "name": "Вуд Невада",
+   "format": "60×120",
+   "surface": "Матовая",
+   "packing": "1 уп-2шт-1,44м2-28,8 кг",
+   "pallet": "1пал-72м2-50уп-1440кг",
+   "stock": {
+    "msk": 0.0,
+    "tver": 0.0,
+    "msk_res": 0.0,
+    "tver_res": 0.0
+   },
+   "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612158",
+   "is_new": true,
+   "photos": []
+  },
+  {
    "art": "VHF612134",
    "name": "Вуд Флорида",
    "format": "60×120",
