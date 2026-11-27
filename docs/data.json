@@ -546,9 +546,9 @@
    "packing": "1 уп-2шт-1,44м2-28,8 кг",
    "pallet": "1пал-72м2-50уп-1440кг",
    "stock": {
-    "msk": 133.2,
+    "msk": 0.72,
     "tver": 1052.64,
-    "msk_res": 34.56,
+    "msk_res": 118.08,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612039",
@@ -1045,9 +1045,9 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 113.76,
+    "msk": 88.56,
     "tver": 941.4,
-    "msk_res": 36.0,
+    "msk_res": 61.2,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600801",
@@ -1105,7 +1105,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 83.52,
+    "msk": 2.52,
     "tver": 379.8,
     "msk_res": 46.8,
     "tver_res": 0.0
@@ -1250,7 +1250,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 142.2,
+    "msk": 159.12,
     "tver": 1855.8,
     "msk_res": 77.4,
     "tver_res": 0.0
@@ -1432,7 +1432,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 222.84,
+    "msk": 217.44,
     "tver": 133.2,
     "msk_res": 0.0,
     "tver_res": 0.0
@@ -1587,9 +1587,9 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 85.68,
+    "msk": 60.48,
     "tver": 184.68,
-    "msk_res": 0.0,
+    "msk_res": 86.4,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP600289",
@@ -1639,7 +1639,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 161.64,
+    "msk": 96.84,
     "tver": 486.0,
     "msk_res": 0.0,
     "tver_res": 0.0
@@ -1666,7 +1666,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 137.1,
+    "msk": 92.1,
     "tver": 1278.0,
     "msk_res": 0.0,
     "tver_res": 0.0
