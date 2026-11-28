@@ -197,9 +197,9 @@
    "packing": "1 уп-2шт-1,44м2-28,8 кг",
    "pallet": "1пал-72м2-50уп-1440кг",
    "stock": {
-    "msk": 158.0,
+    "msk": 136.4,
     "tver": 216.0,
-    "msk_res": 220.0,
+    "msk_res": 151.6,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF612135",
@@ -393,7 +393,7 @@
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612440",
-   "is_new": false,
+   "is_new": true,
    "photos": [
     "01.8a7d3f4d",
     "02.7a9d501c",
@@ -1250,9 +1250,9 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 159.12,
+    "msk": 151.92,
     "tver": 1855.8,
-    "msk_res": 77.4,
+    "msk_res": 84.6,
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600801",
@@ -1310,14 +1310,14 @@
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHF600501",
    "is_new": false,
    "photos": [
-    "01.55b71f1f",
-    "02.04147c12",
-    "03.9f05521e",
-    "04.637de686",
-    "05.1f1a5319",
-    "06.5ebaac65",
-    "07.ff322132",
-    "08.cffacb54"
+    "01.73f90f48",
+    "02.b1dcc534",
+    "03.743c9e48",
+    "04.ab1ea0ee",
+    "05.0d3ba74c",
+    "06.ca753648",
+    "07.cb9f83a0",
+    "08.863cdf74"
    ]
   },
   {
@@ -1508,7 +1508,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 78.48,
+    "msk": 51.48,
     "tver": 2418.12,
     "msk_res": 0.0,
     "tver_res": 0.0
@@ -1799,7 +1799,7 @@
    "packing": "1 уп-5 шт-1,8 м2-36кг",
    "pallet": "1пал-46,8м2-26 уп-936кг",
    "stock": {
-    "msk": 176.76,
+    "msk": 174.96,
     "tver": 984.6,
     "msk_res": 0.0,
     "tver_res": 0.0
@@ -1987,7 +1987,7 @@
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612438",
-   "is_new": false,
+   "is_new": true,
    "photos": []
   },
   {
@@ -2055,7 +2055,7 @@
     "tver_res": 0.0
    },
    "url": "https://almaliceramicc.github.io/almaly-tiles/tile.html?a=VHP612439",
-   "is_new": false,
+   "is_new": true,
    "photos": []
   },
   {
